@@ -22,12 +22,16 @@ class Map extends Component<MapProps, MapState> {
     this.state = {
     };
   }
-  async componentDidMount() {
-    const { provinceName } = this.props
+//   async componentDidMount() {
+    
+//   }
+  async UNSAFE_componentWillReceiveProps(newProps) {
+    // console.log(newProps)
+    const { provinceName } = newProps
     const province = provinceName? provinceName : ''
     if(province === ''){
         const chinaMapJson = await getChinaJson();
-        console.log(chinaMapJson.data)
+        // console.log(chinaMapJson.data)
         echarts.registerMap("china", chinaMapJson.data);
     }else{
         let pinyinName = provinceMap[provinceName];
@@ -59,9 +63,9 @@ class Map extends Component<MapProps, MapState> {
         min: 0,
         max: 2000,
         align: "right",
-        top: "40%",
+        top: province ? "2%":"30%",
         right: 10,
-        left: "auto",
+        left: province ? 0 : 'auto',
         inRange: {
           color: ["#ffc0b1", "#ff8c71", "#ef1717", "#9c0505"]
         },
@@ -72,9 +76,9 @@ class Map extends Component<MapProps, MapState> {
           { min: 10, max: 99 },
           { min: 1, max: 9 }
         ],
+        orient: province ? 'horizontal' : 'vertical',
+        showLabel: province ? false : true,
         padding: 5,
-        orient: "vertical",
-        showLabel: true,
         text: ["高", "低"],
         itemWidth: 10,
         itemHeight: 10,
@@ -82,22 +86,36 @@ class Map extends Component<MapProps, MapState> {
           fontSize: 10
         }
       },
-      series: [
-        {
-          name: "确诊人数",
-          type: "map",
-          roam: false,
-          selectedMode: "single",
-          mapType: province ? province : "china",
-          data: mapList
+      series: [{
+        left: 'center',
+        type: 'map',
+        name: '确诊人数',
+        silent: province ? true : false,
+        label: {
+          show: true,
+          position: 'inside',
+          // margin: 8,
+          fontSize: 6
+        },
+        mapType: province ? province : 'china',
+        data: mapList,
+        zoom: 1.2,
+        roam: false,
+        showLegendSymbol: false,
+        emphasis: {},
+        rippleEffect: {
+          show: true,
+          brushType: 'stroke',
+          scale: 2.5,
+          period: 4
         }
-      ]
+      }]
     };
     return option;
   }
   render() {
     const { provinceName, mapList,onClick } = this.props
-    const province = provinceName? provinceName : ''
+    const province = provinceName? provinceMap[provinceName] : ''
     return (
       <ReactEcharts
         className={styles.mapbox}

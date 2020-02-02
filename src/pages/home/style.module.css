@@ -48,3 +48,24 @@
     line-height: 18px;
     text-align: start;
 }
+.maptip {
+    height: 20px;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 14px;
+    padding-left: 10px;
+    color: #6C63FF;
+    line-height: 18px;
+    font-weight: 400;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+.table{
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+}
+.newsBox{
+    width: 90%;
+    margin: 0 auto;
+}

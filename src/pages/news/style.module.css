@@ -1,0 +1,9 @@
+
+.newsitem{
+    margin-top: 30px;
+    width: 100%;
+    background-color: #fff;
+}
+.newscontent{
+    overflow: hidden;
+}
