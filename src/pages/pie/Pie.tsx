@@ -22,7 +22,7 @@ const getOption = (dataList:[]) => {
     legend: {
         orient: 'horizontal',
         left: 'center',
-        data: ['确诊人数', '死亡人数', '治愈人数']
+        data: ['在诊人数', '死亡人数', '治愈人数']
     },
     series: [
         {
@@ -47,8 +47,8 @@ const Pie: SFC<IProps> = ({ virusDesc }) => {
     // console.log(virusDesc);
     const dataList = [] as any
     const confirm = {
-      name: '确诊人数',
-      value: virusDesc.confirmedCount
+      name: '在诊人数',
+      value: virusDesc.confirmedCount-virusDesc.deadCount-virusDesc.curedCount
     }
     const dead = {
       name: '死亡人数',

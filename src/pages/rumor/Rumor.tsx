@@ -21,7 +21,7 @@ const Rumor = ({ rumorList }) => {
               cover={
                 <img
                   alt="图片"
-                  style={{ borderRadius: "20px 20px 0px 0px", opacity: 0.8 }}
+                  style={{ borderRadius: "20px 20px 0px 0px", opacity: 0.8,height:200 }}
                   src={item.imgsrc}
                 />
               }
