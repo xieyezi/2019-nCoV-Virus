@@ -30,8 +30,8 @@
     display: flex;
     justify-content: space-around;
     margin-top: 10px;
-    font-size: 14px;
-    font-weight: 400;
+    /* font-size: 14px;
+    font-weight: 400; */
     margin-bottom: 8px;
 }
 .allCountry{
@@ -43,9 +43,9 @@
     font-size: 12px;
 }
 .card{
-    font-size: 12px;
+    font-size: 14px;
     color: #616161;
-    line-height: 18px;
+    line-height: 22px;
     text-align: start;
 }
 .maptip {
@@ -56,7 +56,7 @@
     padding-left: 10px;
     color: #6C63FF;
     line-height: 18px;
-    font-weight: 400;
+    font-weight: 600;
     background-color: #fff;
     margin-bottom: 10px;
 }
@@ -68,4 +68,12 @@
 .newsBox{
     width: 90%;
     margin: 0 auto;
+}
+.trend{
+  margin-top: 20px;
+}
+.rumorBox{
+  width: 96%;
+  margin: 0 auto;
+  margin-top: 20px;
 }

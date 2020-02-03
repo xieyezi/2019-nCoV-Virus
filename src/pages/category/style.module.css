@@ -1,0 +1,15 @@
+.category{
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 16px;
+}
+.category p{
+    margin-bottom: 5px;
+}
+.add{
+    font-size: xx-small;
+}
+.tip{
+    color: gray;
+    font-size: xx-small;
+}

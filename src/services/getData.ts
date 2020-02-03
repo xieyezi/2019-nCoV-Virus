@@ -15,6 +15,14 @@ export function getVirusDataStatic() {
   })
 }
 
+// 获取疫情统计数据
+export function getRumor() {
+  return axios({
+    method: 'get',
+    url: `http://api.tianapi.com/txapi/rumour/index?key=${APIKEY}`
+  })
+}
+
 // 获取地图json文件
 export function getChinaJson() {
   return axios({

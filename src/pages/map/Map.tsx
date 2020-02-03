@@ -4,6 +4,7 @@ import ReactEcharts from "echarts-for-react/lib/core";
 import echarts from "echarts/lib/echarts";
 import "echarts/lib/chart/map";
 import "echarts/lib/component/visualMap";
+import "echarts/lib/component/tooltip";
 import provinceMap from "../../map/province-map";
 import {  getChinaJson, getProvinceJson } from "../../services/getData";
 import styles from "./style.module.css";
@@ -22,12 +23,9 @@ class Map extends Component<MapProps, MapState> {
     this.state = {
     };
   }
-//   async componentDidMount() {
-    
-//   }
-  async UNSAFE_componentWillReceiveProps(newProps) {
-    // console.log(newProps)
-    const { provinceName } = newProps
+  static async getDerivedStateFromProps(newProps) { 
+    //console.log(newProps)
+    const { provinceName } =newProps
     const province = provinceName? provinceName : ''
     if(province === ''){
         const chinaMapJson = await getChinaJson();
@@ -39,8 +37,16 @@ class Map extends Component<MapProps, MapState> {
         // console.log(provinceMapJson.data)
         echarts.registerMap(pinyinName, provinceMapJson.data);
     }
-  }
-  getOption = (province: string, mapList: []) => {
+}
+  // async componentDidMount() {
+   
+  // }
+  // async UNSAFE_componentWillReceiveProps(newProps) {
+   
+  // }
+  getOption = () => {
+    const { provinceName,mapList } = this.props
+    const province = provinceName? provinceMap[provinceName] : ''
     const option = {
       tooltip: {
         show: true,
@@ -63,9 +69,9 @@ class Map extends Component<MapProps, MapState> {
         min: 0,
         max: 2000,
         align: "right",
-        top: province ? "2%":"30%",
-        right: 10,
-        left: province ? 0 : 'auto',
+        top: "2%",
+        right: 0,
+        left: 'center',
         inRange: {
           color: ["#ffc0b1", "#ff8c71", "#ef1717", "#9c0505"]
         },
@@ -76,8 +82,8 @@ class Map extends Component<MapProps, MapState> {
           { min: 10, max: 99 },
           { min: 1, max: 9 }
         ],
-        orient: province ? 'horizontal' : 'vertical',
-        showLabel: province ? false : true,
+        orient: 'horizontal',
+        showLabel: true,
         padding: 5,
         text: ["高", "低"],
         itemWidth: 10,
@@ -114,13 +120,14 @@ class Map extends Component<MapProps, MapState> {
     return option;
   }
   render() {
-    const { provinceName, mapList,onClick } = this.props
-    const province = provinceName? provinceMap[provinceName] : ''
+    const { onClick } = this.props
     return (
       <ReactEcharts
         className={styles.mapbox}
+        style={{height:'400px'}}
         echarts={echarts}
-        option={this.getOption(province, mapList)}
+        option={this.getOption()}
+        notMerge={true}
         lazyUpdate={true}
         onEvents={{
           click(e) {

@@ -1,49 +1,53 @@
 import * as React from "react";
-import { Component, createRef } from "react";
-import { getVirusDataOnTime, getVirusDataStatic } from "../../services/getData";
+import { Component } from "react";
+import {
+  getVirusDataOnTime,
+  getVirusDataStatic,
+  getRumor
+} from "../../services/getData";
 import { getMapData, getMapProvinceData } from "../../utils/getMapData";
 import { Tabs, Card } from "antd-mobile";
-import { Table } from "antd";
+import { Table, Divider } from "antd";
 import dayjs from "dayjs";
 import Map from "../map/Map";
-import NewsList from "../news/News"
-// import "../../../node_modules/echarts/map/js/china";
-// import cityMap from "../../map/city-map";
-// import provinceMap from "../../map/province-map";
+import NewsList from "../news/News";
+import Category from "../category/Category";
+import Pie from "../pie/Pie";
+import Rumor from "../rumor/Rumor"
 import "antd-mobile/dist/antd-mobile.css";
-import "antd/dist/antd.css";
 import styles from "./style.module.css";
 
 export interface HomeProps {}
-export interface CategoryProps {
-  title: string;
-  count: number;
-  color: string;
-}
 export interface HomeState {
   timer: any;
   newsList?: [];
   caseList?: [];
+  staticList: [];
+  mapList: [];
+  rumorList: [];
   virusDesc?: {
     confirmedCount: number;
     suspectedCount: number;
     deadCount: number;
     curedCount: number;
+    seriousCount: number;
+    seriousIncr: number;
     modifyTime: number;
     virus: string;
     infectSource: string;
     passWay: string;
     remark1: string;
     remark2: string;
+    confirmedIncr: number;
+    suspectedIncr: number;
+    deadIncr: number;
+    curedIncr: number;
   };
-  staticList: [];
-  mapList: [];
   provinceName?: string;
   tabIndex: number;
 }
 
 class Home extends Component<HomeProps, HomeState> {
-  myRef: React.RefObject<HTMLDivElement> = createRef();
   constructor(props: HomeProps) {
     super(props);
     this.state = {
@@ -55,26 +59,33 @@ class Home extends Component<HomeProps, HomeState> {
         suspectedCount: 0,
         deadCount: 0,
         curedCount: 0,
+        seriousCount: 0,
         modifyTime: 0,
         virus: "",
         infectSource: "",
         passWay: "",
         remark1: "",
-        remark2: ""
+        remark2: "",
+        confirmedIncr: 0,
+        suspectedIncr: 0,
+        deadIncr: 0,
+        curedIncr: 0,
+        seriousIncr: 0
       },
       staticList: [],
       mapList: [],
+      rumorList: [],
       provinceName: "", //是否点击了某个省份
       tabIndex: 0
     };
   }
   componentDidMount() {
     this.initData();
-    // 半小时更新一次数据
+    // 10分钟更新一次数据
     this.setState({
       timer: setInterval(() => {
         this.initData();
-      }, 1000 * 60 * 30)
+      }, 1000 * 60 * 10)
     });
   }
   // 清除轮循
@@ -87,7 +98,7 @@ class Home extends Component<HomeProps, HomeState> {
   initData = async () => {
     const res = await getVirusDataOnTime();
     if (res.status === 200) {
-      // console.log(res);
+      // console.log(res.data.newslist);
       const { news, desc } = res.data.newslist[0];
       this.setState({
         newsList: news,
@@ -103,6 +114,15 @@ class Home extends Component<HomeProps, HomeState> {
       staticList: newslist,
       mapList: maplist
     });
+    this.getRumorList();
+  };
+  getRumorList = async () => {
+    const res = await getRumor();
+    const { newslist} = res.data
+    // console.log(newslist);
+    this.setState({
+      rumorList: newslist
+    })
   };
   toProvince = province => {
     // console.log(province)
@@ -135,11 +155,12 @@ class Home extends Component<HomeProps, HomeState> {
     });
   };
   render() {
-    const { virusDesc, mapList, provinceName, tabIndex, newsList } = this.state;
+    const { virusDesc, mapList, provinceName, tabIndex, newsList, rumorList } = this.state;
     //console.log(newsList);
     const tabs = [
       { title: "疫情地图" },
-      { title: "疫情动态" },
+      { title: "疫情趋势" },
+      { title: "最新消息" },
       { title: "辟谣信息" }
     ];
     const columns = [
@@ -148,17 +169,9 @@ class Home extends Component<HomeProps, HomeState> {
       { title: "死亡", dataIndex: "deadCount", key: "deadCount" },
       { title: "治愈", dataIndex: "curedCount", key: "curedCount" }
     ];
-    const Category = (props: CategoryProps) => {
-      return (
-        <div style={{ color: props.color }}>
-          <p>{props.title}</p>
-          <p>{props.count}例</p>
-        </div>
-      );
-    };
     const expandedRowRender = item => {
-      let mapList:[] = []
-      if(item.provinceName) {
+      let mapList: [] = [];
+      if (item.provinceName) {
         mapList = getMapProvinceData(item.cities, item.provinceName);
       }
       return mapList.length > 0 ? (
@@ -190,12 +203,9 @@ class Home extends Component<HomeProps, HomeState> {
               tabIndex: index
             });
           }}
-          // onTabClick={(tab, index) => {
-          //   console.log("onTabClick", index, tab);
-          // }}
         >
           <div className={styles.map}>
-            <span className={styles.allCountry}>全国</span>{" "}
+            <span className={styles.allCountry}>全国</span>
             <span>
               截至{dayjs(virusDesc.modifyTime).format("YYYY年MM月DD日 HH:mm")}
               (北京时间)
@@ -205,21 +215,31 @@ class Home extends Component<HomeProps, HomeState> {
               <Category
                 title={"确诊"}
                 count={virusDesc.confirmedCount}
+                addcount={virusDesc.confirmedIncr}
                 color={"#f44336"}
               />
               <Category
                 title={"疑似"}
                 count={virusDesc.suspectedCount}
+                addcount={virusDesc.suspectedIncr}
                 color={"#ef6c00"}
+              />
+              <Category
+                title={"重症"}
+                count={virusDesc.seriousCount}
+                addcount={virusDesc.seriousIncr}
+                color={"#5d4037"}
               />
               <Category
                 title={"死亡"}
                 count={virusDesc.deadCount}
+                addcount={virusDesc.deadIncr}
                 color={"#263238"}
               />
               <Category
                 title={"治愈"}
                 count={virusDesc.curedCount}
+                addcount={virusDesc.curedIncr}
                 color={"#64dd17"}
               />
             </div>
@@ -252,20 +272,16 @@ class Home extends Component<HomeProps, HomeState> {
               </div>
             ) : null}
           </div>
-
+          <div className={styles.trend}>
+            <Pie virusDesc={virusDesc} />
+            <Divider />
+            <Pie virusDesc={virusDesc} />
+          </div>
           <div className={styles.newsBox}>
             <NewsList newlist={newsList} />
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              height: "150px",
-              backgroundColor: "#fff"
-            }}
-          >
-            Content of third tab
+          <div className={styles.rumorBox}>
+            <Rumor rumorList={rumorList} />
           </div>
         </Tabs>
         {tabIndex === 0 ? (

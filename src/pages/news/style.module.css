@@ -2,8 +2,16 @@
 .newsitem{
     margin-top: 30px;
     width: 100%;
-    background-color: #fff;
+    background-color: rgb(245, 245, 249);
 }
 .newscontent{
     overflow: hidden;
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+.origin{
+    color: #6C63FF;
 }

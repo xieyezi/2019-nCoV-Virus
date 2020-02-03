@@ -1,0 +1,22 @@
+.cardbox{
+    padding: 0 5px 0 5px;
+}
+.card{
+    height: 400px;
+    border-radius: 20px;
+}
+.image{
+    border-radius: 20px;
+}
+.tip{
+    position: absolute;
+    top:10%;
+    left: 30%;
+    width: 150px;
+    height: 150px;
+}
+.title{
+    font-size: 16px;
+    color: #37474f;
+    font-weight: 400;
+}
