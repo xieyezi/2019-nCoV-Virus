@@ -3,17 +3,20 @@ import { Component } from "react";
 import {
   getVirusDataOnTime,
   getVirusDataStatic,
-  getRumor
+  getRumor,
+  getTrend
 } from "../../services/getData";
 import { getMapData, getMapProvinceData } from "../../utils/getMapData";
 import { Tabs, Card } from "antd-mobile";
-import { Table, Divider } from "antd";
+import { Table, Divider, Spin } from "antd";
 import dayjs from "dayjs";
 import Map from "../map/Map";
 import NewsList from "../news/News";
 import Category from "../category/Category";
 import Pie from "../pie/Pie";
-import Rumor from "../rumor/Rumor"
+import Rumor from "../rumor/Rumor";
+import Line from "../line/Line";
+
 import "antd-mobile/dist/antd-mobile.css";
 import styles from "./style.module.css";
 
@@ -25,6 +28,11 @@ export interface HomeState {
   staticList: [];
   mapList: [];
   rumorList: [];
+  dateList: [];
+  confirmedTrendList: [];
+  suspectedTrendList: [];
+  deadTrendList: [];
+  curedTrendList: [];
   virusDesc?: {
     confirmedCount: number;
     suspectedCount: number;
@@ -45,6 +53,7 @@ export interface HomeState {
   };
   provinceName?: string;
   tabIndex: number;
+  loading: boolean;
 }
 
 class Home extends Component<HomeProps, HomeState> {
@@ -76,7 +85,13 @@ class Home extends Component<HomeProps, HomeState> {
       mapList: [],
       rumorList: [],
       provinceName: "", //是否点击了某个省份
-      tabIndex: 0
+      tabIndex: 0,
+      dateList: [],
+      confirmedTrendList: [],
+      suspectedTrendList: [],
+      deadTrendList: [],
+      curedTrendList: [],
+      loading: true
     };
   }
   componentDidMount() {
@@ -115,14 +130,56 @@ class Home extends Component<HomeProps, HomeState> {
       mapList: maplist
     });
     this.getRumorList();
+
+    // console.log(trend)
   };
   getRumorList = async () => {
     const res = await getRumor();
-    const { newslist} = res.data
+    const { newslist } = res.data;
     // console.log(newslist);
     this.setState({
       rumorList: newslist
-    })
+    });
+  };
+  getTrendList = async () => {
+    const trend = await getTrend();
+    // console.log(trend);
+    const trendList = trend.data.results;
+    let dateArr = [] as any;
+    let confirmedArr = [] as any;
+    let suspectedArr = [] as any;
+    let deadArr = [] as any;
+    let curedArr = [] as any;
+    let datelist = [] as any;
+    let confirmedList = [] as any;
+    let suspectedList = [] as any;
+    let deadList = [] as any;
+    let curedList = [] as any;
+    trendList.forEach((item: any) => {
+      dateArr.push(dayjs(item.updateTime).format("YYYY年MM月DD日"));
+      confirmedArr.push(item.confirmedCount);
+      suspectedArr.push(item.suspectedCount);
+      deadArr.push(item.deadCount);
+      curedArr.push(item.curedCount);
+    });
+    dateArr.reverse().forEach((item,index) => {
+      if(item !== dateArr[index+1]) {
+        console.log(item+":"+confirmedArr[index])
+        datelist.push(item);
+        confirmedList.push(confirmedArr[index]);
+        suspectedList.push(suspectedArr[index]);
+        deadList.push(deadArr[index]);
+        curedList.push(deadArr[index]);
+      }
+    });
+    this.setState({
+      dateList: datelist.reverse(),
+      confirmedTrendList: confirmedList.reverse(),
+      suspectedTrendList: suspectedList.reverse(),
+      deadTrendList: deadList.reverse(),
+      curedTrendList: curedList.reverse(),
+      loading: false
+    });
   };
   toProvince = province => {
     // console.log(province)
@@ -155,7 +212,20 @@ class Home extends Component<HomeProps, HomeState> {
     });
   };
   render() {
-    const { virusDesc, mapList, provinceName, tabIndex, newsList, rumorList } = this.state;
+    const {
+      virusDesc,
+      mapList,
+      provinceName,
+      tabIndex,
+      newsList,
+      rumorList,
+      dateList,
+      confirmedTrendList,
+      suspectedTrendList,
+      deadTrendList,
+      curedTrendList,
+      loading
+    } = this.state;
     //console.log(newsList);
     const tabs = [
       { title: "疫情地图" },
@@ -199,6 +269,9 @@ class Home extends Component<HomeProps, HomeState> {
           tabBarActiveTextColor="#6C63FF"
           tabBarUnderlineStyle={{ border: "1px #6C63FF solid" }}
           onChange={(tab, index) => {
+            if (index === 1) {
+              this.getTrendList();
+            }
             this.setState({
               tabIndex: index
             });
@@ -273,9 +346,23 @@ class Home extends Component<HomeProps, HomeState> {
             ) : null}
           </div>
           <div className={styles.trend}>
-            <Pie virusDesc={virusDesc} />
-            <Divider />
-            <Pie virusDesc={virusDesc} />
+           <Spin tip="Loading..." spinning={loading}>
+              <Pie virusDesc={virusDesc} />
+              <Divider />
+              <Line
+                dateList={dateList}
+                firstList={confirmedTrendList}
+                secondList={suspectedTrendList}
+                legendData={["确诊人数", "疑似人数"]}
+              />
+              <Divider />
+              <Line
+                dateList={dateList}
+                firstList={deadTrendList}
+                secondList={curedTrendList}
+                legendData={["死亡人数", "治愈人数"]}
+              />
+            </Spin>
           </div>
           <div className={styles.newsBox}>
             <NewsList newlist={newsList} />

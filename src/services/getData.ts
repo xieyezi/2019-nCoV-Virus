@@ -23,6 +23,15 @@ export function getRumor() {
   })
 }
 
+// 获取疫情趋势数据
+export function getTrend() {
+  return axios({
+    method: 'get',
+    url: `https://lab.isaaclin.cn/nCoV/api/overall?latest=0`
+  })
+}
+
+
 // 获取地图json文件
 export function getChinaJson() {
   return axios({

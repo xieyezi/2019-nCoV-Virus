@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d18a63ac.chunk.css",
+    "main.js": "/static/js/main.0915bbf7.chunk.js",
+    "main.js.map": "/static/js/main.0915bbf7.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.15eada8d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.15eada8d.js.map",
+    "static/css/2.57590e92.chunk.css": "/static/css/2.57590e92.chunk.css",
+    "static/js/2.f7c53315.chunk.js": "/static/js/2.f7c53315.chunk.js",
+    "static/js/2.f7c53315.chunk.js.map": "/static/js/2.f7c53315.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.67ed9cd1d802c94bad7868b32e54d308.js": "/precache-manifest.67ed9cd1d802c94bad7868b32e54d308.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.57590e92.chunk.css.map": "/static/css/2.57590e92.chunk.css.map",
+    "static/css/main.d18a63ac.chunk.css.map": "/static/css/main.d18a63ac.chunk.css.map",
+    "static/js/2.f7c53315.chunk.js.LICENSE": "/static/js/2.f7c53315.chunk.js.LICENSE",
+    "static/media/style.module.css": "/static/media/cdc-sSVSWMa035g-unsplash.92e98c75.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.15eada8d.js",
+    "static/css/2.57590e92.chunk.css",
+    "static/js/2.f7c53315.chunk.js",
+    "static/css/main.d18a63ac.chunk.css",
+    "static/js/main.0915bbf7.chunk.js"
+  ]
+}
