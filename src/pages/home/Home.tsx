@@ -6,7 +6,7 @@ import Card from 'antd-mobile/lib/card'
 import Tabs from 'antd-mobile/lib/tabs'
 import 'antd-mobile/lib/card/style/css'
 import 'antd-mobile/lib/tabs/style/css'
-import { Table, Divider, Spin } from 'antd'
+import { Table, Divider, Skeleton } from 'antd'
 import dayjs from 'dayjs'
 import Map from '../map/Map'
 import NewsList from '../news/News'
@@ -50,6 +50,7 @@ export interface HomeState {
   provinceName?: string
   tabIndex: number
   loading: boolean
+  trendLoading: boolean
 }
 
 class Home extends Component<HomeProps, HomeState> {
@@ -87,7 +88,8 @@ class Home extends Component<HomeProps, HomeState> {
       suspectedTrendList: [],
       deadTrendList: [],
       curedTrendList: [],
-      loading: true
+      loading: true,
+      trendLoading: true
     }
   }
   componentDidMount() {
@@ -123,7 +125,8 @@ class Home extends Component<HomeProps, HomeState> {
     const maplist = getMapData(newslist)
     this.setState({
       staticList: newslist,
-      mapList: maplist
+      mapList: maplist,
+      loading: false
     })
     this.getRumorList()
 
@@ -132,7 +135,7 @@ class Home extends Component<HomeProps, HomeState> {
   getRumorList = async () => {
     const res = await getRumor()
     const { newslist } = res.data
-    console.log(newslist)
+    // console.log(newslist)
     this.setState({
       rumorList: newslist
     })
@@ -152,7 +155,7 @@ class Home extends Component<HomeProps, HomeState> {
     let deadList = [] as any
     let curedList = [] as any
     trendList.forEach((item: any) => {
-      dateArr.push(dayjs(item.updateTime).format('YYYY年MM月DD日'))
+      dateArr.push(dayjs(item.updateTime).format('MM-DD'))
       confirmedArr.push(item.confirmedCount)
       suspectedArr.push(item.suspectedCount)
       deadArr.push(item.deadCount)
@@ -164,16 +167,16 @@ class Home extends Component<HomeProps, HomeState> {
         confirmedList.push(confirmedArr[index])
         suspectedList.push(suspectedArr[index])
         deadList.push(deadArr[index])
-        curedList.push(deadArr[index])
+        curedList.push(curedArr[index])
       }
     })
     this.setState({
-      dateList: datelist.reverse(),
+      dateList: datelist,
       confirmedTrendList: confirmedList.reverse(),
       suspectedTrendList: suspectedList.reverse(),
       deadTrendList: deadList.reverse(),
       curedTrendList: curedList.reverse(),
-      loading: false
+      trendLoading: false
     })
   }
   toProvince = (province) => {
@@ -219,7 +222,8 @@ class Home extends Component<HomeProps, HomeState> {
       suspectedTrendList,
       deadTrendList,
       curedTrendList,
-      loading
+      loading,
+      trendLoading
     } = this.state
     //console.log(newsList);
     const tabs = [{ title: '疫情地图' }, { title: '疫情趋势' }, { title: '最新消息' }, { title: '辟谣信息' }]
@@ -246,118 +250,129 @@ class Home extends Component<HomeProps, HomeState> {
     }
 
     return (
-      <div>
-        <div className={styles.top}>
-          <p className={styles.title}>新型冠状病毒肺炎疫情</p>
-          <p className={styles.tip}>实时动态</p>
-        </div>
-        <Tabs
-          tabs={tabs}
-          initialPage={0}
-          swipeable={false}
-          tabBarInactiveTextColor="#616161"
-          tabBarActiveTextColor="#6C63FF"
-          tabBarUnderlineStyle={{ border: '1px #6C63FF solid' }}
-          onChange={(tab, index) => {
-            if (index === 1) {
-              this.getTrendList()
-            }
-            this.setState({
-              tabIndex: index
-            })
-          }}
-        >
-          <div className={styles.map}>
-            <span className={styles.allCountry}>全国</span>
-            <span>
-              截至{dayjs(virusDesc.modifyTime).format('YYYY年MM月DD日 HH:mm')}
-              (北京时间)
-            </span>
-            <span>统计</span>
-            <div className={styles.category}>
-              <Category
-                title={'确诊'}
-                count={virusDesc.confirmedCount}
-                addcount={virusDesc.confirmedIncr}
-                color={'#f44336'}
-              />
-              <Category
-                title={'疑似'}
-                count={virusDesc.suspectedCount}
-                addcount={virusDesc.suspectedIncr}
-                color={'#ef6c00'}
-              />
-              <Category
-                title={'重症'}
-                count={virusDesc.seriousCount}
-                addcount={virusDesc.seriousIncr}
-                color={'#5d4037'}
-              />
-              <Category title={'死亡'} count={virusDesc.deadCount} addcount={virusDesc.deadIncr} color={'#263238'} />
-              <Category title={'治愈'} count={virusDesc.curedCount} addcount={virusDesc.curedIncr} color={'#64dd17'} />
-            </div>
-            <Card>
-              <Card.Body className={styles.card}>
-                <div>
-                  <span>病毒：</span>
-                  {virusDesc.virus}
-                </div>
-                <div>
-                  <span>传染源：</span>
-                  {virusDesc.infectSource}
-                </div>
-                <div>{virusDesc.remark1}</div>
-                <div>{virusDesc.remark2}</div>
-                <div>
-                  <span>传播途径：</span>
-                  {virusDesc.passWay}
-                </div>
-              </Card.Body>
-            </Card>
-            <Map provinceName={provinceName} mapList={mapList} onClick={this.toProvince} />
-            {provinceName ? (
-              <div className={styles.maptip} onClick={this.toCountry}>
-                返回全国
+      <Skeleton loading={loading} active paragraph={{ rows: 50 }}>
+        <div>
+          <div className={styles.top}>
+            <p className={styles.title}>新型冠状病毒肺炎疫情</p>
+            <p className={styles.tip}>实时动态</p>
+          </div>
+          <Tabs
+            tabs={tabs}
+            initialPage={0}
+            swipeable={false}
+            tabBarInactiveTextColor="#616161"
+            tabBarActiveTextColor="#6C63FF"
+            tabBarUnderlineStyle={{ border: '1px #6C63FF solid' }}
+            onChange={(tab, index) => {
+              if (index === 1) {
+                this.getTrendList()
+              }
+              this.setState({
+                tabIndex: index
+              })
+            }}
+          >
+            <div className={styles.map}>
+              <span className={styles.allCountry}>全国</span>
+              <span>
+                截至{dayjs(virusDesc.modifyTime).format('YYYY年MM月DD日 HH:mm')}
+                (北京时间)
+              </span>
+              <span>统计</span>
+              <div className={styles.category}>
+                <Category
+                  title={'确诊'}
+                  count={virusDesc.confirmedCount}
+                  addcount={virusDesc.confirmedIncr}
+                  color={'#e57471'}
+                />
+                <Category
+                  title={'疑似'}
+                  count={virusDesc.suspectedCount}
+                  addcount={virusDesc.suspectedIncr}
+                  color={'#dda451'}
+                />
+                <Category
+                  title={'重症'}
+                  count={virusDesc.seriousCount}
+                  addcount={virusDesc.seriousIncr}
+                  color={'#5d4037'}
+                />
+                <Category title={'死亡'} count={virusDesc.deadCount} addcount={virusDesc.deadIncr} color={'#919399'} />
+                <Category
+                  title={'治愈'}
+                  count={virusDesc.curedCount}
+                  addcount={virusDesc.curedIncr}
+                  color={'#7ebe50'}
+                />
               </div>
-            ) : null}
-          </div>
-          <div className={styles.trend}>
-            <Spin tip="Loading..." spinning={loading}>
-              <Line
-                dateList={dateList}
-                firstList={confirmedTrendList}
-                secondList={suspectedTrendList}
-                legendData={['确诊人数', '疑似人数']}
-              />
-              <Divider />
-              <Line
-                dateList={dateList}
-                firstList={deadTrendList}
-                secondList={curedTrendList}
-                legendData={['死亡人数', '治愈人数']}
-              />
-              <Divider />
-              <Pie virusDesc={virusDesc} />
-            </Spin>
-          </div>
-          <div className={styles.newsBox}>
-            <NewsList newlist={newsList} />
-          </div>
-          <div className={styles.rumorBox}>
-            <Rumor rumorList={rumorList} />
-          </div>
-        </Tabs>
-        {tabIndex === 0 ? (
-          <Table
-            className={styles.table}
-            columns={columns}
-            pagination={false}
-            expandedRowRender={(item) => expandedRowRender(item)}
-            dataSource={mapList}
-            rowKey={(record: any) => record.name}
-          />
-        ) : null}
-      </div>
+              <Card>
+                <Card.Body className={styles.card}>
+                  <div>
+                    <span>病毒：</span>
+                    {virusDesc.virus}
+                  </div>
+                  <div>
+                    <span>传染源：</span>
+                    {virusDesc.infectSource}
+                  </div>
+                  <div>{virusDesc.remark1}</div>
+                  <div>{virusDesc.remark2}</div>
+                  <div>
+                    <span>传播途径：</span>
+                    {virusDesc.passWay}
+                  </div>
+                </Card.Body>
+              </Card>
+              <Map provinceName={provinceName} mapList={mapList} onClick={this.toProvince} />
+              {provinceName ? (
+                <div className={styles.maptip} onClick={this.toCountry}>
+                  返回全国
+                </div>
+              ) : null}
+            </div>
+            <div className={styles.trend}>
+              <Skeleton loading={trendLoading} active paragraph={{ rows: 15 }}>
+                <Line
+                  dateList={dateList}
+                  firstList={confirmedTrendList}
+                  secondList={suspectedTrendList}
+                  firstColor={'#e57471'}
+                  secondColor={'#dda451'}
+                  legendData={['确诊人数', '疑似人数']}
+                />
+                <Divider />
+                <Line
+                  dateList={dateList}
+                  firstList={deadTrendList}
+                  secondList={curedTrendList}
+                  firstColor={'#919399'}
+                  secondColor={'#7ebe50'}
+                  legendData={['死亡人数', '治愈人数']}
+                />
+                <Divider />
+                <Pie virusDesc={virusDesc} />
+              </Skeleton>
+            </div>
+            <div className={styles.newsBox}>
+              <NewsList newlist={newsList} />
+            </div>
+            <div className={styles.rumorBox}>
+              <Rumor rumorList={rumorList} />
+            </div>
+          </Tabs>
+          {tabIndex === 0 ? (
+            <Table
+              className={styles.table}
+              columns={columns}
+              pagination={false}
+              expandedRowRender={(item) => expandedRowRender(item)}
+              dataSource={mapList}
+              rowKey={(record: any) => record.name}
+            />
+          ) : null}
+        </div>
+      </Skeleton>
     )
   }
 }

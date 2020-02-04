@@ -49,16 +49,15 @@
     text-align: start;
 }
 .maptip {
-    height: 20px;
     display: flex;
     justify-content: flex-start;
-    font-size: 14px;
+    font-size: 16px;
     padding-left: 10px;
     color: #6C63FF;
     line-height: 18px;
     font-weight: 600;
     background-color: #fff;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 .table{
     height: 100%;

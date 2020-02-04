@@ -24,6 +24,7 @@ const getOption = (dataList: []) => {
       left: 'center',
       data: ['在诊人数', '死亡人数', '治愈人数']
     },
+    color: ['#e57471', '#919399', '#7ebe50'],
     series: [
       {
         name: '占比率',

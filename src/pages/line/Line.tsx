@@ -13,8 +13,17 @@ export interface IProps {
   firstList: []
   secondList: []
   legendData: string[]
+  firstColor: string
+  secondColor: string
 }
-const getOption = (dateList: [], firstList: [], secondList: [], legendData: string[]) => {
+const getOption = (
+  dateList: [],
+  firstList: [],
+  secondList: [],
+  legendData: string[],
+  firstColor: string,
+  secondColor: string
+) => {
   const option = {
     tooltip: {
       trigger: 'axis'
@@ -43,25 +52,41 @@ const getOption = (dateList: [], firstList: [], secondList: [], legendData: stri
         name: legendData[0],
         type: 'line',
         stack: '总量',
+        itemStyle: {
+          normal: {
+            color: firstColor,
+            lineStyle: {
+              color: firstColor
+            }
+          }
+        },
         data: firstList
       },
       {
         name: legendData[1],
         type: 'line',
         stack: '总量',
+        itemStyle: {
+          normal: {
+            color: secondColor,
+            lineStyle: {
+              color: secondColor
+            }
+          }
+        },
         data: secondList
       }
     ]
   }
   return option
 }
-const Line: SFC<IProps> = ({ dateList, firstList, secondList, legendData }) => {
+const Line: SFC<IProps> = ({ dateList, firstList, secondList, legendData, firstColor, secondColor }) => {
   // console.log(trendList);
   return (
     <ReactEcharts
       // className={styles.mapbox}
       echarts={echarts}
-      option={getOption(dateList, firstList, secondList, legendData)}
+      option={getOption(dateList, firstList, secondList, legendData, firstColor, secondColor)}
       notMerge={true}
       lazyUpdate={true}
     />
