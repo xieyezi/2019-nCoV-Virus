@@ -67,6 +67,7 @@
 .newsBox{
     width: 90%;
     margin: 0 auto;
+    background: #fff;
 }
 .trend{
   margin-top: 30px;
@@ -75,5 +76,5 @@
   width: 90%;
   margin: 0 auto;
   margin-top: 20px;
- 
+  background: #fff;
 }

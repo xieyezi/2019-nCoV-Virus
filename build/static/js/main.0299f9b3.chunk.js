@@ -69,7 +69,7 @@
         return y()({ method: 'get', url: '../map/province/'.concat(e, '.json') })
       }
       var _ = n(189)
-      function b(e) {
+      function w(e) {
         var t = []
         return (
           e.forEach(function(e) {
@@ -79,7 +79,7 @@
           t
         )
       }
-      function w(e, t) {
+      function b(e, t) {
         var n = []
         return (
           t.includes('\u7701') || t.includes('\u81ea\u6cbb\u533a')
@@ -392,7 +392,7 @@
           var t = e.rumorList
           return a.createElement(
             K.a,
-            { style: { background: 'rgb(245, 245, 249)', height: '450px' } },
+            { style: { background: '#fff', height: '450px' } },
             t.map(function(e) {
               var t = ''
               return (
@@ -500,7 +500,7 @@
                       case 6:
                         ;(i = c.sent),
                           (o = i.data.newslist),
-                          (s = b(o)),
+                          (s = w(o)),
                           n.setState({ staticList: o, mapList: s, loading: !1 }),
                           n.getRumorList()
                       case 11:
@@ -601,12 +601,12 @@
                   }
                 }
                 if (0 !== r.length) {
-                  var d = w(r, t)
+                  var d = b(r, t)
                   n.setState({ provinceName: e, mapList: d })
                 }
               }),
               (n.toCountry = function() {
-                var e = b(n.state.staticList)
+                var e = w(n.state.staticList)
                 n.setState({ provinceName: '', mapList: e })
               }),
               (n.state = {
@@ -849,7 +849,7 @@
                               return (function(e) {
                                 var t = []
                                 return (
-                                  e.provinceName && (t = w(e.cities, e.provinceName)),
+                                  e.provinceName && (t = b(e.cities, e.provinceName)),
                                   t.length > 0
                                     ? a.createElement(l.a, {
                                         columns: x,
@@ -896,4 +896,4 @@
   },
   [[428, 1, 2]]
 ])
-//# sourceMappingURL=main.7f20fc5b.chunk.js.map
+//# sourceMappingURL=main.0299f9b3.chunk.js.map

@@ -2,7 +2,7 @@
 .newsitem{
     margin-top: 30px;
     width: 100%;
-    background-color: rgb(245, 245, 249);
+    background-color: #fff;
 }
 .newscontent{
     overflow: hidden;

@@ -5,7 +5,7 @@ import styles from './style.module.css'
 const Rumor = ({ rumorList }) => {
   // console.log(rumorList);
   return (
-    <Carousel style={{ background: 'rgb(245, 245, 249)', height: '450px' }}>
+    <Carousel style={{ background: '#fff', height: '450px' }}>
       {rumorList.map((item) => {
         let imgUrl: string = ''
         if (item.explain === '谣言' || item.explain === '伪科学' || item.explain === '有失实') {
