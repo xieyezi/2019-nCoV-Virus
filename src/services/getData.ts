@@ -31,7 +31,6 @@ export function getTrend() {
   })
 }
 
-
 // 获取地图json文件
 export function getChinaJson() {
   return axios({
