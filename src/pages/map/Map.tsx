@@ -22,7 +22,7 @@ class Map extends Component<MapProps, MapState> {
     this.state = {}
   }
   static async getDerivedStateFromProps(newProps) {
-    console.log(newProps)
+    // console.log(newProps)
     const { provinceName } = newProps
     const province = provinceName ? provinceName : ''
     if (province === '') {

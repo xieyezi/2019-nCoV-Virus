@@ -42,7 +42,7 @@
         maptip: 'style_maptip__FsC97',
         table: 'style_table__1JI-m',
         newsBox: 'style_newsBox__3cHCM',
-        trend: 'style_trend__2qaQN',
+        trendBox: 'style_trendBox__zpyqh',
         rumorBox: 'style_rumorBox__2u0wc',
         footer: 'style_footer__348qH'
       }
@@ -66,19 +66,19 @@
         v = a(186),
         g = a(104),
         y = a.n(g),
-        E = '964dc226dd5b57e892e6199735b6c55f'
-      function _(e) {
+        x = '964dc226dd5b57e892e6199735b6c55f'
+      function E(e) {
         return y()({
           method: 'get',
           url: 'https://raw.githubusercontent.com/huanent/vue-echarts-map-demo/master/map/province/'.concat(e, '.json')
         })
       }
-      var w = a(189)
-      function x(e) {
+      var _ = a(189)
+      function w(e) {
         var t = []
         return (
           e.forEach(function(e) {
-            var a = Object(w.a)({ name: e.provinceShortName, value: e.confirmedCount }, e)
+            var a = Object(_.a)({ name: e.provinceShortName, value: e.confirmedCount }, e)
             t.push(a)
           }),
           t
@@ -89,11 +89,11 @@
         return (
           t.includes('\u7701') || t.includes('\u81ea\u6cbb\u533a')
             ? e.forEach(function(e) {
-                var t = Object(w.a)({ name: e.cityName + '\u5e02', value: e.confirmedCount }, e)
+                var t = Object(_.a)({ name: e.cityName + '\u5e02', value: e.confirmedCount }, e)
                 a.push(t)
               })
             : e.forEach(function(e) {
-                var t = Object(w.a)({ name: e.cityName, value: e.confirmedCount }, e)
+                var t = Object(_.a)({ name: e.cityName, value: e.confirmedCount }, e)
                 a.push(t)
               }),
           a
@@ -108,8 +108,8 @@
         D = a(121),
         I = a.n(D),
         T = a(15),
-        O = a.n(T),
-        B =
+        B = a.n(T),
+        O =
           (a(585),
           a(608),
           a(227),
@@ -160,7 +160,7 @@
                 var e = a.props,
                   t = e.provinceName,
                   n = e.mapList,
-                  r = t ? B[t] : ''
+                  r = t ? O[t] : ''
                 return {
                   visualMap: {
                     show: !0,
@@ -195,7 +195,7 @@
                       label: { show: !0, position: 'inside', fontSize: 6 },
                       mapType: r || 'china',
                       data: n,
-                      zoom: 1.2,
+                      zoom: r ? 1.1 : 1.2,
                       roam: !1,
                       showLegendSymbol: !1,
                       rippleEffect: { show: !0, brushType: 'stroke', scale: 2.5, period: 4 }
@@ -219,10 +219,10 @@
                     return n.createElement(I.a, {
                       className: M.a.mapbox,
                       style: { height: '400px' },
-                      echarts: O.a,
+                      echarts: B.a,
                       option: this.getOption(),
                       notMerge: !0,
-                      lazyUpdate: !0,
+                      lazyUpdate: !1,
                       onEvents: {
                         click: function(t) {
                           e(t.name)
@@ -241,12 +241,12 @@
                       for (;;)
                         switch ((i.prev = i.next)) {
                           case 0:
-                            if ((console.log(e), (t = e.provinceName), '' !== (t || ''))) {
-                              i.next = 10
+                            if (((t = e.provinceName), '' !== (t || ''))) {
+                              i.next = 9
                               break
                             }
                             return (
-                              (i.next = 6),
+                              (i.next = 5),
                               m.a.awrap(
                                 y()({
                                   method: 'get',
@@ -255,14 +255,14 @@
                                 })
                               )
                             )
-                          case 6:
-                            ;(a = i.sent), O.a.registerMap('china', a.data), (i.next = 15)
+                          case 5:
+                            ;(a = i.sent), B.a.registerMap('china', a.data), (i.next = 14)
                             break
-                          case 10:
-                            return (n = B[t]), (i.next = 13), m.a.awrap(_(n))
-                          case 13:
-                            ;(r = i.sent), O.a.registerMap(n, r.data)
-                          case 15:
+                          case 9:
+                            return (n = O[t]), (i.next = 12), m.a.awrap(E(n))
+                          case 12:
+                            ;(r = i.sent), B.a.registerMap(n, r.data)
+                          case 14:
                           case 'end':
                             return i.stop()
                         }
@@ -374,7 +374,7 @@
               ]
             }
           }),
-        Q = function(e) {
+        K = function(e) {
           var t = e.virusDesc,
             a = [],
             r = { name: '\u5728\u8bca\u4eba\u6570', value: t.confirmedCount - t.deadCount - t.curedCount },
@@ -384,16 +384,16 @@
             a.push(r),
             a.push(i),
             a.push(o),
-            n.createElement(I.a, { echarts: O.a, option: G(a), notMerge: !0, lazyUpdate: !0 })
+            n.createElement(I.a, { echarts: B.a, option: G(a), notMerge: !0, lazyUpdate: !0 })
           )
         },
-        K = (a(654), a(423)),
+        Q = (a(654), a(423)),
         X = a(142),
         $ = a.n(X),
         Z = function(e) {
           var t = e.rumorList
           return n.createElement(
-            K.a,
+            Q.a,
             { style: { background: '#fff', height: '450px' } },
             t.map(function(e) {
               var t = ''
@@ -466,7 +466,7 @@
             i = e.legendData,
             o = e.firstColor,
             c = e.secondColor
-          return n.createElement(I.a, { echarts: O.a, option: ee(t, a, r, i, o, c), notMerge: !0, lazyUpdate: !0 })
+          return n.createElement(I.a, { echarts: B.a, option: ee(t, a, r, i, o, c), notMerge: !0, lazyUpdate: !0 })
         },
         ae = a(45),
         ne = a.n(ae),
@@ -484,7 +484,7 @@
                         return (
                           (s.next = 2),
                           m.a.awrap(
-                            y()({ method: 'get', url: 'http://api.tianapi.com/txapi/ncov/index?key='.concat(E) })
+                            y()({ method: 'get', url: 'http://api.tianapi.com/txapi/ncov/index?key='.concat(x) })
                           )
                         )
                       case 2:
@@ -496,13 +496,13 @@
                             a.setState({ newsList: n, virusDesc: r, caseList: e.data.newslist[0].case })),
                           (s.next = 6),
                           m.a.awrap(
-                            y()({ method: 'get', url: 'http://api.tianapi.com/txapi/ncovcity/index?key='.concat(E) })
+                            y()({ method: 'get', url: 'http://api.tianapi.com/txapi/ncovcity/index?key='.concat(x) })
                           )
                         )
                       case 6:
                         ;(i = s.sent),
                           (o = i.data.newslist),
-                          (c = x(o)),
+                          (c = w(o)),
                           a.setState({ staticList: o, mapList: c, loading: !1 }),
                           a.getRumorList()
                       case 11:
@@ -520,7 +520,7 @@
                         return (
                           (n.next = 2),
                           m.a.awrap(
-                            y()({ method: 'get', url: 'http://api.tianapi.com/txapi/rumour/index?key='.concat(E) })
+                            y()({ method: 'get', url: 'http://api.tianapi.com/txapi/rumour/index?key='.concat(x) })
                           )
                         )
                       case 2:
@@ -608,7 +608,7 @@
                 }
               }),
               (a.toCountry = function() {
-                var e = x(a.state.staticList)
+                var e = w(a.state.staticList)
                 a.setState({ provinceName: '', mapList: e })
               }),
               (a.state = {
@@ -689,7 +689,7 @@
                     v = t.curedTrendList,
                     g = t.loading,
                     y = t.trendLoading,
-                    E = [
+                    x = [
                       { title: '\u5730\u533a', dataIndex: 'name', key: 'name' },
                       { title: '\u786e\u8bca', dataIndex: 'confirmedCount', key: 'confirmedCount' },
                       { title: '\u6b7b\u4ea1', dataIndex: 'deadCount', key: 'deadCount' },
@@ -726,7 +726,7 @@
                           tabBarActiveTextColor: '#6C63FF',
                           tabBarUnderlineStyle: { border: '1px #6C63FF solid' },
                           onChange: function(t, a) {
-                            1 === a && e.getTrendList(), e.setState({ tabIndex: a })
+                            e.setState({ tabIndex: a }), 1 === a && e.getTrendList()
                           }
                         },
                         n.createElement(
@@ -814,7 +814,7 @@
                         ),
                         n.createElement(
                           'div',
-                          { className: ne.a.trend },
+                          { className: ne.a.trendBox },
                           n.createElement(
                             c.a,
                             { loading: y, active: !0, paragraph: { rows: 15 } },
@@ -836,7 +836,7 @@
                               legendData: ['\u6b7b\u4ea1\u4eba\u6570', '\u6cbb\u6108\u4eba\u6570']
                             }),
                             n.createElement(s.a, null),
-                            n.createElement(Q, { virusDesc: a })
+                            n.createElement(K, { virusDesc: a })
                           )
                         ),
                         n.createElement('div', { className: ne.a.newsBox }, n.createElement(q, { newlist: u })),
@@ -845,7 +845,7 @@
                       0 === o
                         ? n.createElement(l.a, {
                             className: ne.a.table,
-                            columns: E,
+                            columns: x,
                             pagination: !1,
                             expandedRowRender: function(e) {
                               return (function(e) {
@@ -854,7 +854,7 @@
                                   e.provinceName && (t = b(e.cities, e.provinceName)),
                                   t.length > 0
                                     ? n.createElement(l.a, {
-                                        columns: E,
+                                        columns: x,
                                         showHeader: !1,
                                         rowKey: function(e) {
                                           return e.name

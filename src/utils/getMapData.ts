@@ -1,9 +1,6 @@
 // 将数据格式化为地图所需格式
 export function getMapData(staticList: []) {
   let mapList = [] as any
-  //    for(let [index, item] of staticList.entries){
-  //        console.log(item)
-  //    }
   staticList.forEach((item: any) => {
     let mapItem = {
       name: item.provinceShortName,
