@@ -1,26 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.e5d75a99.chunk.css",
-    "main.js": "/static/js/main.0299f9b3.chunk.js",
-    "main.js.map": "/static/js/main.0299f9b3.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.15eada8d.js",
-    "runtime-main.js.map": "/static/js/runtime-main.15eada8d.js.map",
+    "main.css": "/static/css/main.c3a371e6.chunk.css",
+    "main.js": "/static/js/main.0c5d583a.chunk.js",
+    "runtime-main.js": "/static/js/runtime-main.cb17acd1.js",
     "static/css/2.6b8bf123.chunk.css": "/static/css/2.6b8bf123.chunk.css",
-    "static/js/2.f3cf1b0d.chunk.js": "/static/js/2.f3cf1b0d.chunk.js",
-    "static/js/2.f3cf1b0d.chunk.js.map": "/static/js/2.f3cf1b0d.chunk.js.map",
+    "static/js/2.56018eb3.chunk.js": "/static/js/2.56018eb3.chunk.js",
     "index.html": "/index.html",
-    "precache-manifest.7bd6bde376f70abb85ea6639d3f8ddb0.js": "/precache-manifest.7bd6bde376f70abb85ea6639d3f8ddb0.js",
+    "precache-manifest.3fab0d340484da3a0a0a27671d5589f9.js": "/precache-manifest.3fab0d340484da3a0a0a27671d5589f9.js",
     "service-worker.js": "/service-worker.js",
+    "service-worker.js.gz": "/service-worker.js.gz",
+    "static/css/2.6b8bf123.chunk.css.gz": "/static/css/2.6b8bf123.chunk.css.gz",
     "static/css/2.6b8bf123.chunk.css.map": "/static/css/2.6b8bf123.chunk.css.map",
-    "static/css/main.e5d75a99.chunk.css.map": "/static/css/main.e5d75a99.chunk.css.map",
-    "static/js/2.f3cf1b0d.chunk.js.LICENSE": "/static/js/2.f3cf1b0d.chunk.js.LICENSE",
+    "static/css/main.c3a371e6.chunk.css.gz": "/static/css/main.c3a371e6.chunk.css.gz",
+    "static/css/main.c3a371e6.chunk.css.map": "/static/css/main.c3a371e6.chunk.css.map",
+    "static/js/2.56018eb3.chunk.js.LICENSE": "/static/js/2.56018eb3.chunk.js.LICENSE",
+    "static/js/2.56018eb3.chunk.js.gz": "/static/js/2.56018eb3.chunk.js.gz",
+    "static/js/main.0c5d583a.chunk.js.gz": "/static/js/main.0c5d583a.chunk.js.gz",
+    "static/js/runtime-main.cb17acd1.js.gz": "/static/js/runtime-main.cb17acd1.js.gz",
     "static/media/style.module.css": "/static/media/cdc-sSVSWMa035g-unsplash.92e98c75.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.15eada8d.js",
+    "static/js/runtime-main.cb17acd1.js",
     "static/css/2.6b8bf123.chunk.css",
-    "static/js/2.f3cf1b0d.chunk.js",
-    "static/css/main.e5d75a99.chunk.css",
-    "static/js/main.0299f9b3.chunk.js"
+    "static/js/2.56018eb3.chunk.js",
+    "static/css/main.c3a371e6.chunk.css",
+    "static/js/main.0c5d583a.chunk.js"
   ]
 }
