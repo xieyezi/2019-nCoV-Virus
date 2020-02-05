@@ -113,8 +113,8 @@
         c = (n(437), n(267)),
         l = (n(996), n(268)),
         u = n(68),
-        m = n.n(u),
-        d = n(180),
+        d = n.n(u),
+        m = n(180),
         p = n(181),
         h = n(185),
         f = n(182),
@@ -122,12 +122,12 @@
         v = n(104),
         y = n.n(v),
         x = '964dc226dd5b57e892e6199735b6c55f'
-      var E = n(189)
-      function _(e) {
+      var _ = n(189)
+      function E(e) {
         var t = []
         return (
           e.forEach(function(e) {
-            var n = Object(E.a)({ name: e.provinceShortName, value: e.confirmedCount }, e)
+            var n = Object(_.a)({ name: e.provinceShortName, value: e.confirmedCount }, e)
             t.push(n)
           }),
           t
@@ -138,11 +138,11 @@
         return (
           t.includes('\u7701') || t.includes('\u81ea\u6cbb\u533a')
             ? e.forEach(function(e) {
-                var t = Object(E.a)({ name: e.cityName + '\u5e02', value: e.confirmedCount }, e)
+                var t = Object(_.a)({ name: e.cityName + '\u5e02', value: e.confirmedCount }, e)
                 n.push(t)
               })
             : e.forEach(function(e) {
-                var t = Object(E.a)({ name: e.cityName, value: e.confirmedCount }, e)
+                var t = Object(_.a)({ name: e.cityName, value: e.confirmedCount }, e)
                 n.push(t)
               }),
           n
@@ -204,7 +204,7 @@
           function t(e) {
             var n
             return (
-              Object(d.a)(this, t),
+              Object(m.a)(this, t),
               ((n = Object(h.a)(this, Object(f.a)(t).call(this, e))).getOption = function() {
                 var e = n.props,
                   t = e.provinceName,
@@ -286,7 +286,7 @@
                   key: 'getDerivedStateFromProps',
                   value: function(e) {
                     var t, a
-                    return m.a.async(function(r) {
+                    return d.a.async(function(r) {
                       for (;;)
                         switch ((r.prev = r.next)) {
                           case 0:
@@ -317,11 +317,11 @@
         U = (n(625), n(270)),
         H = (n(418), n(184)),
         F = n(123),
-        W = n.n(F),
-        Y = function(e) {
+        Y = n.n(F),
+        q = function(e) {
           return a.createElement(
             'div',
-            { className: W.a.newsitem },
+            { className: Y.a.newsitem },
             a.createElement(
               'p',
               null,
@@ -333,45 +333,45 @@
             a.createElement(
               H.a,
               { title: e.news.title },
-              a.createElement('p', { className: W.a.newscontent }, e.news.summary),
+              a.createElement('p', { className: Y.a.newscontent }, e.news.summary),
               a.createElement(
                 'div',
-                { className: W.a.footer },
+                { className: Y.a.footer },
                 a.createElement(
                   'p',
                   null,
                   '\u5730\u533a:',
-                  a.createElement('span', { className: W.a.area }, e.news.provinceName)
+                  a.createElement('span', { className: Y.a.area }, e.news.provinceName)
                 ),
                 a.createElement(
                   'p',
                   {
                     onClick: function() {
-                      return q(e.news.sourceUrl)
+                      return P(e.news.sourceUrl)
                     }
                   },
                   '\u6765\u6e90:',
-                  a.createElement('span', { className: W.a.origin }, e.news.infoSource)
+                  a.createElement('span', { className: Y.a.origin }, e.news.infoSource)
                 )
               )
             )
           )
         },
-        q = function(e) {
+        P = function(e) {
           window.open('about:blank').location.href = e
         },
-        P = function(e) {
+        J = function(e) {
           var t = e.newlist
           return a.createElement(
             U.a,
             null,
             t.map(function(e, t) {
-              return a.createElement(U.a.Item, { key: t }, a.createElement(Y, { news: e }))
+              return a.createElement(U.a.Item, { key: t }, a.createElement(q, { news: e }))
             })
           )
         },
-        J = n(187),
-        A = n.n(J),
+        W = n(187),
+        A = n.n(W),
         R = function(e) {
           var t = e.title,
             n = e.count,
@@ -514,16 +514,16 @@
           function t(e) {
             var n
             return (
-              Object(d.a)(this, t),
+              Object(m.a)(this, t),
               ((n = Object(h.a)(this, Object(f.a)(t).call(this, e))).initData = function() {
                 var e, t, a, r, i, o, s
-                return m.a.async(function(c) {
+                return d.a.async(function(c) {
                   for (;;)
                     switch ((c.prev = c.next)) {
                       case 0:
                         return (
                           (c.next = 2),
-                          m.a.awrap(
+                          d.a.awrap(
                             y()({ method: 'get', url: 'http://api.tianapi.com/txapi/ncov/index?key='.concat(x) })
                           )
                         )
@@ -535,14 +535,14 @@
                             (r = t.desc),
                             n.setState({ newsList: a, virusDesc: r, caseList: e.data.newslist[0].case })),
                           (c.next = 6),
-                          m.a.awrap(
+                          d.a.awrap(
                             y()({ method: 'get', url: 'http://api.tianapi.com/txapi/ncovcity/index?key='.concat(x) })
                           )
                         )
                       case 6:
                         ;(i = c.sent),
                           (o = i.data.newslist),
-                          (s = _(o)),
+                          (s = E(o)),
                           n.setState({ staticList: o, mapList: s, loading: !1 }),
                           n.getRumorList()
                       case 11:
@@ -553,13 +553,13 @@
               }),
               (n.getRumorList = function() {
                 var e, t
-                return m.a.async(function(a) {
+                return d.a.async(function(a) {
                   for (;;)
                     switch ((a.prev = a.next)) {
                       case 0:
                         return (
                           (a.next = 2),
-                          m.a.awrap(
+                          d.a.awrap(
                             y()({ method: 'get', url: 'http://api.tianapi.com/txapi/rumour/index?key='.concat(x) })
                           )
                         )
@@ -572,14 +572,14 @@
                 })
               }),
               (n.getTrendList = function() {
-                var e, t, a, r, i, o, s, c, l, u, d, p
-                return m.a.async(function(h) {
+                var e, t, a, r, i, o, s, c, l, u, m, p
+                return d.a.async(function(h) {
                   for (;;)
                     switch ((h.prev = h.next)) {
                       case 0:
                         return (
                           (h.next = 2),
-                          m.a.awrap(y()({ method: 'get', url: 'https://lab.isaaclin.cn/nCoV/api/overall?latest=0' }))
+                          d.a.awrap(y()({ method: 'get', url: 'https://lab.isaaclin.cn/nCoV/api/overall?latest=0' }))
                         )
                       case 2:
                         ;(e = h.sent),
@@ -592,7 +592,7 @@
                           (c = []),
                           (l = []),
                           (u = []),
-                          (d = []),
+                          (m = []),
                           (p = []),
                           t.forEach(function(e) {
                             a.push(k()(e.updateTime).format('MM-DD')),
@@ -602,13 +602,13 @@
                               s.push(e.curedCount)
                           }),
                           a.reverse().forEach(function(e, t) {
-                            e !== a[t + 1] && (c.push(e), l.push(r[t]), u.push(i[t]), d.push(o[t]), p.push(s[t]))
+                            e !== a[t + 1] && (c.push(e), l.push(r[t]), u.push(i[t]), m.push(o[t]), p.push(s[t]))
                           }),
                           n.setState({
                             dateList: c,
                             confirmedTrendList: l.reverse(),
                             suspectedTrendList: u.reverse(),
-                            deadTrendList: d.reverse(),
+                            deadTrendList: m.reverse(),
                             curedTrendList: p.reverse(),
                             trendLoading: !1
                           })
@@ -633,8 +633,8 @@
                       break
                     }
                   }
-                } catch (d) {
-                  ;(o = !0), (s = d)
+                } catch (m) {
+                  ;(o = !0), (s = m)
                 } finally {
                   try {
                     i || null == l.return || l.return()
@@ -643,12 +643,12 @@
                   }
                 }
                 if (0 !== r.length) {
-                  var m = w(r, t)
-                  n.setState({ provinceName: e, mapList: m })
+                  var d = w(r, t)
+                  n.setState({ provinceName: e, mapList: d })
                 }
               }),
               (n.toCountry = function() {
-                var e = _(n.state.staticList)
+                var e = E(n.state.staticList)
                 n.setState({ provinceName: '', mapList: e })
               }),
               (n.state = {
@@ -662,9 +662,9 @@
                   curedCount: 0,
                   seriousCount: 0,
                   modifyTime: 0,
-                  virus: '',
-                  infectSource: '',
-                  passWay: '',
+                  note1: '',
+                  note2: '',
+                  note3: '',
                   remark1: '',
                   remark2: '',
                   confirmedIncr: 0,
@@ -721,8 +721,8 @@
                     i = t.provinceName,
                     o = t.tabIndex,
                     u = t.newsList,
-                    m = t.rumorList,
-                    d = t.dateList,
+                    d = t.rumorList,
+                    m = t.dateList,
                     p = t.confirmedTrendList,
                     h = t.suspectedTrendList,
                     f = t.deadTrendList,
@@ -756,9 +756,9 @@
                         {
                           tabs: [
                             { title: '\u75ab\u60c5\u5730\u56fe' },
-                            { title: '\u75ab\u60c5\u8d8b\u52bf' },
                             { title: '\u6700\u65b0\u6d88\u606f' },
-                            { title: '\u8f9f\u8c23\u4fe1\u606f' }
+                            { title: '\u8f9f\u8c23\u4fe1\u606f' },
+                            { title: '\u75ab\u60c5\u8d8b\u52bf' }
                           ],
                           initialPage: 0,
                           swipeable: !1,
@@ -766,7 +766,7 @@
                           tabBarActiveTextColor: '#6C63FF',
                           tabBarUnderlineStyle: { border: '1px #6C63FF solid' },
                           onChange: function(t, n) {
-                            e.setState({ tabIndex: n }), 1 === n && e.getTrendList()
+                            e.setState({ tabIndex: n }), 3 === n && e.getTrendList()
                           }
                         },
                         a.createElement(
@@ -821,26 +821,11 @@
                             a.createElement(
                               j.a.Body,
                               { className: ne.a.card },
-                              a.createElement(
-                                'div',
-                                null,
-                                a.createElement('span', null, '\u75c5\u6bd2\uff1a'),
-                                n.virus
-                              ),
-                              a.createElement(
-                                'div',
-                                null,
-                                a.createElement('span', null, '\u4f20\u67d3\u6e90\uff1a'),
-                                n.infectSource
-                              ),
+                              a.createElement('div', null, n.note1),
+                              a.createElement('div', null, n.note2),
                               a.createElement('div', null, n.remark1),
                               a.createElement('div', null, n.remark2),
-                              a.createElement(
-                                'div',
-                                null,
-                                a.createElement('span', null, '\u4f20\u64ad\u9014\u5f84\uff1a'),
-                                n.passWay
-                              )
+                              a.createElement('div', null, n.note3)
                             )
                           ),
                           a.createElement(M, { provinceName: i, mapList: r, onClick: this.toProvince }),
@@ -852,6 +837,8 @@
                               )
                             : null
                         ),
+                        a.createElement('div', { className: ne.a.newsBox }, a.createElement(J, { newlist: u })),
+                        a.createElement('div', { className: ne.a.rumorBox }, a.createElement($, { rumorList: d })),
                         a.createElement(
                           'div',
                           { className: ne.a.trendBox },
@@ -859,7 +846,7 @@
                             s.a,
                             { loading: y, active: !0, paragraph: { rows: 15 } },
                             a.createElement(ee, {
-                              dateList: d,
+                              dateList: m,
                               firstList: p,
                               secondList: h,
                               firstColor: '#e57471',
@@ -868,7 +855,7 @@
                             }),
                             a.createElement(c.a, null),
                             a.createElement(ee, {
-                              dateList: d,
+                              dateList: m,
                               firstList: f,
                               secondList: g,
                               firstColor: '#919399',
@@ -878,9 +865,7 @@
                             a.createElement(c.a, null),
                             a.createElement(G, { virusDesc: n })
                           )
-                        ),
-                        a.createElement('div', { className: ne.a.newsBox }, a.createElement(P, { newlist: u })),
-                        a.createElement('div', { className: ne.a.rumorBox }, a.createElement($, { rumorList: m }))
+                        )
                       ),
                       0 === o
                         ? a.createElement(l.a, {

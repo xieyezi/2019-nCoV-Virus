@@ -38,9 +38,9 @@ export interface HomeState {
     seriousCount: number
     seriousIncr: number
     modifyTime: number
-    virus: string
-    infectSource: string
-    passWay: string
+    note1: string
+    note2: string
+    note3: string
     remark1: string
     remark2: string
     confirmedIncr: number
@@ -68,9 +68,9 @@ class Home extends Component<HomeProps, HomeState> {
         curedCount: 0,
         seriousCount: 0,
         modifyTime: 0,
-        virus: '',
-        infectSource: '',
-        passWay: '',
+        note1: '',
+        note2: '',
+        note3: '',
         remark1: '',
         remark2: '',
         confirmedIncr: 0,
@@ -112,7 +112,7 @@ class Home extends Component<HomeProps, HomeState> {
   initData = async () => {
     const res = await getVirusDataOnTime()
     if (res.status === 200) {
-      // console.log(res.data.newslist);
+      // console.log(res.data.newslist)
       const { news, desc } = res.data.newslist[0]
       this.setState({
         newsList: news,
@@ -143,7 +143,7 @@ class Home extends Component<HomeProps, HomeState> {
   }
   getTrendList = async () => {
     const trend = await getTrend()
-    // console.log(trend);
+    //console.log(trend);
     const trendList = trend.data.results
     let dateArr = [] as any
     let confirmedArr = [] as any
@@ -182,8 +182,6 @@ class Home extends Component<HomeProps, HomeState> {
   }
   toProvince = (province) => {
     //TODO: 地图下钻有问题，待修复
-    // return
-    // console.log(province)
     const { staticList } = this.state
     let cites: [] = []
     let provinceName
@@ -227,7 +225,7 @@ class Home extends Component<HomeProps, HomeState> {
       trendLoading
     } = this.state
     //console.log(newsList);
-    const tabs = [{ title: '疫情地图' }, { title: '疫情趋势' }, { title: '最新消息' }, { title: '辟谣信息' }]
+    const tabs = [{ title: '疫情地图' }, { title: '最新消息' }, { title: '辟谣信息' }, { title: '疫情趋势' }]
     const columns = [
       { title: '地区', dataIndex: 'name', key: 'name' },
       { title: '确诊', dataIndex: 'confirmedCount', key: 'confirmedCount' },
@@ -268,7 +266,7 @@ class Home extends Component<HomeProps, HomeState> {
               this.setState({
                 tabIndex: index
               })
-              if (index === 1) {
+              if (index === 3) {
                 this.getTrendList()
               }
             }}
@@ -309,20 +307,11 @@ class Home extends Component<HomeProps, HomeState> {
               </div>
               <Card>
                 <Card.Body className={styles.card}>
-                  <div>
-                    <span>病毒：</span>
-                    {virusDesc.virus}
-                  </div>
-                  <div>
-                    <span>传染源：</span>
-                    {virusDesc.infectSource}
-                  </div>
+                  <div>{virusDesc.note1}</div>
+                  <div>{virusDesc.note2}</div>
                   <div>{virusDesc.remark1}</div>
                   <div>{virusDesc.remark2}</div>
-                  <div>
-                    <span>传播途径：</span>
-                    {virusDesc.passWay}
-                  </div>
+                  <div>{virusDesc.note3}</div>
                 </Card.Body>
               </Card>
               <Map provinceName={provinceName} mapList={mapList} onClick={this.toProvince} />
@@ -331,6 +320,12 @@ class Home extends Component<HomeProps, HomeState> {
                   返回全国
                 </div>
               ) : null}
+            </div>
+            <div className={styles.newsBox}>
+              <NewsList newlist={newsList} />
+            </div>
+            <div className={styles.rumorBox}>
+              <Rumor rumorList={rumorList} />
             </div>
             <div className={styles.trendBox}>
               <Skeleton loading={trendLoading} active paragraph={{ rows: 15 }}>
@@ -354,12 +349,6 @@ class Home extends Component<HomeProps, HomeState> {
                 <Divider />
                 <Pie virusDesc={virusDesc} />
               </Skeleton>
-            </div>
-            <div className={styles.newsBox}>
-              <NewsList newlist={newsList} />
-            </div>
-            <div className={styles.rumorBox}>
-              <Rumor rumorList={rumorList} />
             </div>
           </Tabs>
           {tabIndex === 0 ? (
