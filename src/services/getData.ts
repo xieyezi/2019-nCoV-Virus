@@ -35,13 +35,13 @@ export function getTrend() {
 export function getChinaJson() {
   return axios({
     method: 'get',
-    url: `../map/china.json`
+    url: `https://raw.githubusercontent.com/huanent/vue-echarts-map-demo/master/map/china.json`
   })
 }
 // 获取地图json文件
 export function getProvinceJson(pinyinName) {
   return axios({
     method: 'get',
-    url: `../map/province/${pinyinName}.json`
+    url: `https://raw.githubusercontent.com/huanent/vue-echarts-map-demo/master/map/province/${pinyinName}.json`
   })
 }

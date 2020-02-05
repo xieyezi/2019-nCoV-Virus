@@ -12,6 +12,10 @@
     justify-content: space-between;
     font-size: 12px;
 }
+.area{
+    padding-left: 5px;
+}
 .origin{
     color: #6C63FF;
+    padding-left: 5px;
 }

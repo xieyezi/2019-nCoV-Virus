@@ -17,7 +17,9 @@ const NewItem = (news) => {
       <Card title={news.news.title}>
         <p className={styles.newscontent}>{news.news.summary}</p>
         <div className={styles.footer}>
-          <p>地区:{news.news.provinceName}</p>
+          <p>
+            地区:<span className={styles.area}>{news.news.provinceName}</span>
+          </p>
           <p onClick={() => openUrl(news.news.sourceUrl)}>
             来源:<span className={styles.origin}>{news.news.infoSource}</span>
           </p>

@@ -1,3 +1,4 @@
+
 .top {
   background-image: url("./images/cdc-sSVSWMa035g-unsplash.jpg");
   height: 150px;
@@ -77,4 +78,18 @@
   margin: 0 auto;
   margin-top: 20px;
   background: #fff;
+}
+.footer {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  font-size: xx-small;
+  color: #6C63FF;
+  line-height: 14px;
+}
+.footer a{
+  color: #6C63FF;
 }

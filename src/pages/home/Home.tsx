@@ -372,6 +372,17 @@ class Home extends Component<HomeProps, HomeState> {
             />
           ) : null}
         </div>
+        {tabIndex === 0 ? (
+          <div className={styles.footer}>
+            <p>武汉加油呀~</p>
+            <a href="http://www.beian.miit.gov.cn/" target="view_window">
+              渝ICP备17013916号
+            </a>
+            <a href="https://github.com/xieyezi" target="view_window">
+              Github
+            </a>
+          </div>
+        ) : null}
       </Skeleton>
     )
   }
