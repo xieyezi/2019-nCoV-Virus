@@ -39,24 +39,24 @@ class Map extends Component<MapProps, MapState> {
     const { provinceName, mapList } = this.props
     const province = provinceName ? provinceMap[provinceName] : ''
     const option = {
-      // tooltip: {
-      //   show: true,
-      //   formatter: function(params) {
-      //     let tip = ''
-      //     if (params.data) {
-      //       tip =
-      //         params.name +
-      //         '：<br>确诊：' +
-      //         params.data['value'] +
-      //         '例<br>死亡：' +
-      //         params.data['deadCount'] +
-      //         '例<br>治愈：' +
-      //         params.data['curedCount'] +
-      //         '例'
-      //     }
-      //     return tip
-      //   }
-      // },
+      tooltip: {
+        show: true,
+        formatter: function(params) {
+          let tip = ''
+          if (params.data) {
+            tip =
+              params.name +
+              '：<br>确诊：' +
+              params.data['value'] +
+              '例<br>死亡：' +
+              params.data['deadCount'] +
+              '例<br>治愈：' +
+              params.data['curedCount'] +
+              '例'
+          }
+          return tip
+        }
+      },
       visualMap: {
         show: true,
         type: 'piecewise',

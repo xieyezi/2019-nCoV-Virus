@@ -82,7 +82,7 @@
 }
 .footer {
   margin-top: 20px;
-  /* margin-bottom: 30px; */
+  padding-bottom: 20px;
   background: #fff;
   display: flex;
   justify-content: space-around;

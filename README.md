@@ -1,44 +1,68 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 2019-nCoV-疫情可视化-react版本
+> 武汉加油🍻
 
-## Available Scripts
+> 线上地址：[疫情实时预览工具](http://xieyezi.com:9001)
 
-In the project directory, you can run:
+看见了许多大佬都在写疫情可视化工具，所以我也按耐不住了。希望能为疫情的防控做出一点点微薄的贡献。
 
-### `yarn start`
+## 预览
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ <br />
+<div text="center">
+ <img width="48%" src="https://i.loli.net/2020/02/05/hxQ92mtwd5WkM6a.png"/>
+ <img width="48%" src="https://i.loli.net/2020/02/05/jwfMITN4zKpYZqF.png"/>
+ <img width="48%" src="https://i.loli.net/2020/02/05/fcIAbX6StMsz8Lv.png"/>
+ <img width="48%" src="https://i.loli.net/2020/02/05/8NXTyZkaUw1qs46.png"/>
+ <img width="48%" src="https://i.loli.net/2020/02/05/LxlPgn1wQHAER5q.png"/>
+ <img width="48%" src="https://i.loli.net/2020/02/05/F1HbnVfWhwogyDX.png"/>
+</div> 
+ <br />
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 快速开始
+- clone项目: git clone https://github.com/xieyezi/2019-nCoV-Virus.git
+- 安装依赖: cd 2019-nCoV-Virus && yarn install
+- 运行: yarn start
+- 打包: yarn build
+- 运行打包文件: yarn global add serve && serve build
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## 部署
+通过docker的Dockerfile文件制作为镜像，然后通过nginx来进行部署。
+Dockerfile:
+```
+# ncov Dockerfile
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#指定node镜像对项目进行依赖安装和打包
+FROM node:10.16.0 AS builder
+# 将容器的工作目录设置为/app(当前目录，如果/app不存在，WORKDIR会创建/app文件夹)
+WORKDIR /app 
+COPY package.json /app/ 
+RUN npm config set registry "https://registry.npm.taobao.org/" \
+    && npm install
+ 
+COPY . /app   
+RUN npm run build 
 
-### `yarn eject`
+#指定nginx配置项目，--from=builder 指的是从上一次 build 的结果中提取了编译结果(FROM node:alpine as builder)，即是把刚刚打包生成的dist放进nginx中
+FROM nginx
+COPY --from=builder app/build /usr/share/nginx/html/
+COPY --from=builder app/nginx.conf /etc/nginx/nginx.conf
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#暴露容器80端口
+EXPOSE 80
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## 数据来源
+ - [天行数据-抗击肺炎](https://www.tianapi.com/apiview/169)
+ - [地图Json](https://github.com/huanent/vue-echarts-map-demo)
+ - [疫情发展趋势折线图](https://github.com/BlankerL/DXY-2019-nCoV-Crawler)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+ 在此特地鸣谢！  
+ 希望武汉疫情能够早日过去！
+  
