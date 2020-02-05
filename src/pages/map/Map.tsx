@@ -6,7 +6,7 @@ import 'echarts/lib/chart/map'
 import 'echarts/lib/component/visualMap'
 import 'echarts/lib/component/tooltip'
 import provinceMap from '../../map/province-map'
-import { getChinaJson, getProvinceJson } from '../../services/getData'
+// import { getChinaJson, getProvinceJson } from '../../services/getData'
 import styles from './style.module.css'
 export interface MapProps {
   provinceName?: string
@@ -26,37 +26,45 @@ class Map extends Component<MapProps, MapState> {
     const { provinceName } = newProps
     const province = provinceName ? provinceName : ''
     if (province === '') {
-      const chinaMapJson = await getChinaJson()
+      // const chinaMapJson = await getChinaJson()
+      import(`echarts/map/json/china.json`).then((map) => {
+        // console.log(map)
+        echarts.registerMap('china', map.default)
+      })
       // console.log(chinaMapJson.data)
-      echarts.registerMap('china', chinaMapJson.data)
+      // echarts.registerMap('china', chinaMapJson.data)
     } else {
       let pinyinName = provinceMap[provinceName]
-      const provinceMapJson = await getProvinceJson(pinyinName)
-      echarts.registerMap(pinyinName, provinceMapJson.data)
+      //const provinceMapJson = await getProvinceJson(pinyinName)
+      // echarts.registerMap(pinyinName, provinceMapJson.data)
+      import(`echarts/map/json/province/${pinyinName}.json`).then((map) => {
+        // console.log(map)
+        echarts.registerMap(pinyinName, map.default)
+      })
     }
   }
   getOption = () => {
     const { provinceName, mapList } = this.props
     const province = provinceName ? provinceMap[provinceName] : ''
     const option = {
-      tooltip: {
-        show: true,
-        formatter: function(params) {
-          let tip = ''
-          if (params.data) {
-            tip =
-              params.name +
-              '：<br>确诊：' +
-              params.data['value'] +
-              '例<br>死亡：' +
-              params.data['deadCount'] +
-              '例<br>治愈：' +
-              params.data['curedCount'] +
-              '例'
-          }
-          return tip
-        }
-      },
+      // tooltip: {
+      //   show: true,
+      //   formatter: function(params) {
+      //     let tip = ''
+      //     if (params.data) {
+      //       tip =
+      //         params.name +
+      //         '：<br>确诊：' +
+      //         params.data['value'] +
+      //         '例<br>死亡：' +
+      //         params.data['deadCount'] +
+      //         '例<br>治愈：' +
+      //         params.data['curedCount'] +
+      //         '例'
+      //     }
+      //     return tip
+      //   }
+      // },
       visualMap: {
         show: true,
         type: 'piecewise',

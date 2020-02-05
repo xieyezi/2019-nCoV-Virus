@@ -1,7 +1,7 @@
 ;(this['webpackJsonpwuhan-virus'] = this['webpackJsonpwuhan-virus'] || []).push([
   [0],
   {
-    123: function(e, t, a) {
+    123: function(e, t, n) {
       e.exports = {
         newsitem: 'style_newsitem__3GDJz',
         newscontent: 'style_newscontent__Fq2J7',
@@ -10,7 +10,7 @@
         origin: 'style_origin__2hUNY'
       }
     },
-    142: function(e, t, a) {
+    142: function(e, t, n) {
       e.exports = {
         cardbox: 'style_cardbox__tiQww',
         card: 'style_card__WVS6y',
@@ -19,18 +19,18 @@
         title: 'style_title__35CVV'
       }
     },
-    187: function(e, t, a) {
+    187: function(e, t, n) {
       e.exports = { category: 'style_category__3QUH4', add: 'style_add__xqv3y', tip: 'style_tip__BaCAO' }
     },
-    421: function(e, t, a) {
+    421: function(e, t, n) {
       e.exports = { mapbox: 'style_mapbox___c_Dz' }
     },
-    428: function(e, t, a) {
-      e.exports = a(993)
+    428: function(e, t, n) {
+      e.exports = n(994)
     },
-    433: function(e, t, a) {},
-    434: function(e, t, a) {},
-    45: function(e, t, a) {
+    433: function(e, t, n) {},
+    434: function(e, t, n) {},
+    45: function(e, t, n) {
       e.exports = {
         top: 'style_top__1VCSg',
         title: 'style_title__aPjei',
@@ -47,72 +47,121 @@
         footer: 'style_footer__348qH'
       }
     },
-    993: function(e, t, a) {
-      'use strict'
-      a.r(t)
-      var n = a(0),
-        r = a.n(n),
-        i = a(11),
-        o = a.n(i),
-        c = (a(433), a(434), a(435), a(269)),
-        s = (a(437), a(267)),
-        l = (a(995), a(268)),
-        u = a(56),
-        m = a.n(u),
-        d = a(180),
-        p = a(181),
-        h = a(185),
-        f = a(182),
-        v = a(186),
-        g = a(104),
-        y = a.n(g),
-        x = '964dc226dd5b57e892e6199735b6c55f'
-      function E(e) {
-        return y()({
-          method: 'get',
-          url: 'https://raw.githubusercontent.com/huanent/vue-echarts-map-demo/master/map/province/'.concat(e, '.json')
+    624: function(e, t, n) {
+      var a = {
+        './anhui.json': [997, 4],
+        './aomen.json': [998, 5],
+        './beijing.json': [999, 6],
+        './chongqing.json': [1e3, 7],
+        './fujian.json': [1001, 8],
+        './gansu.json': [1002, 9],
+        './guangdong.json': [1003, 10],
+        './guangxi.json': [1004, 11],
+        './guizhou.json': [1005, 12],
+        './hainan.json': [1006, 13],
+        './hebei.json': [1007, 14],
+        './heilongjiang.json': [1008, 15],
+        './henan.json': [1009, 16],
+        './hubei.json': [1010, 17],
+        './hunan.json': [1011, 18],
+        './jiangsu.json': [1012, 19],
+        './jiangxi.json': [1013, 20],
+        './jilin.json': [1014, 21],
+        './liaoning.json': [1015, 22],
+        './neimenggu.json': [1016, 23],
+        './ningxia.json': [1017, 24],
+        './qinghai.json': [1018, 25],
+        './shandong.json': [1019, 26],
+        './shanghai.json': [1020, 27],
+        './shanxi.json': [1021, 28],
+        './shanxi1.json': [1022, 29],
+        './sichuan.json': [1023, 30],
+        './taiwan.json': [1024, 31],
+        './tianjin.json': [1025, 32],
+        './xianggang.json': [1026, 33],
+        './xinjiang.json': [1027, 34],
+        './xizang.json': [1028, 35],
+        './yunnan.json': [1029, 36],
+        './zhejiang.json': [1030, 37]
+      }
+      function r(e) {
+        if (!n.o(a, e))
+          return Promise.resolve().then(function() {
+            var t = new Error("Cannot find module '" + e + "'")
+            throw ((t.code = 'MODULE_NOT_FOUND'), t)
+          })
+        var t = a[e],
+          r = t[0]
+        return n.e(t[1]).then(function() {
+          return n.t(r, 3)
         })
       }
-      var _ = a(189)
-      function w(e) {
+      ;(r.keys = function() {
+        return Object.keys(a)
+      }),
+        (r.id = 624),
+        (e.exports = r)
+    },
+    994: function(e, t, n) {
+      'use strict'
+      n.r(t)
+      var a = n(0),
+        r = n.n(a),
+        i = n(11),
+        o = n.n(i),
+        s = (n(433), n(434), n(435), n(269)),
+        c = (n(437), n(267)),
+        l = (n(996), n(268)),
+        u = n(68),
+        m = n.n(u),
+        d = n(180),
+        p = n(181),
+        h = n(185),
+        f = n(182),
+        g = n(186),
+        v = n(104),
+        y = n.n(v),
+        x = '964dc226dd5b57e892e6199735b6c55f'
+      var E = n(189)
+      function _(e) {
         var t = []
         return (
           e.forEach(function(e) {
-            var a = Object(_.a)({ name: e.provinceShortName, value: e.confirmedCount }, e)
-            t.push(a)
+            var n = Object(E.a)({ name: e.provinceShortName, value: e.confirmedCount }, e)
+            t.push(n)
           }),
           t
         )
       }
-      function b(e, t) {
-        var a = []
+      function w(e, t) {
+        var n = []
         return (
           t.includes('\u7701') || t.includes('\u81ea\u6cbb\u533a')
             ? e.forEach(function(e) {
-                var t = Object(_.a)({ name: e.cityName + '\u5e02', value: e.confirmedCount }, e)
-                a.push(t)
+                var t = Object(E.a)({ name: e.cityName + '\u5e02', value: e.confirmedCount }, e)
+                n.push(t)
               })
             : e.forEach(function(e) {
-                var t = Object(_.a)({ name: e.cityName, value: e.confirmedCount }, e)
-                a.push(t)
+                var t = Object(E.a)({ name: e.cityName, value: e.confirmedCount }, e)
+                n.push(t)
               }),
-          a
+          n
         )
       }
-      var C = a(264),
-        L = a.n(C),
-        N = a(419),
-        k = a.n(N),
-        S = (a(512), a(516), a(139)),
-        j = a.n(S),
-        D = a(121),
-        I = a.n(D),
-        T = a(15),
-        B = a.n(T),
+      var b = n(264),
+        j = n.n(b),
+        C = n(419),
+        L = n.n(C),
+        N = (n(512), n(516), n(139)),
+        k = n.n(N),
+        S = n(121),
+        D = n.n(S),
+        I = n(15),
+        T = n.n(I),
         O =
-          (a(585),
-          a(608),
-          a(227),
+          (n(585),
+          n(608),
+          n(227),
           {
             安徽: 'anhui',
             澳门: 'aomen',
@@ -149,17 +198,17 @@
             浙江: 'zhejiang',
             陕西: 'shanxi'
           }),
-        z = a(421),
-        M = a.n(z),
-        H = (function(e) {
+        z = n(421),
+        B = n.n(z),
+        M = (function(e) {
           function t(e) {
-            var a
+            var n
             return (
               Object(d.a)(this, t),
-              ((a = Object(h.a)(this, Object(f.a)(t).call(this, e))).getOption = function() {
-                var e = a.props,
+              ((n = Object(h.a)(this, Object(f.a)(t).call(this, e))).getOption = function() {
+                var e = n.props,
                   t = e.provinceName,
-                  n = e.mapList,
+                  a = e.mapList,
                   r = t ? O[t] : ''
                 return {
                   visualMap: {
@@ -194,7 +243,7 @@
                       name: '\u786e\u8bca\u4eba\u6570',
                       label: { show: !0, position: 'inside', fontSize: 6 },
                       mapType: r || 'china',
-                      data: n,
+                      data: a,
                       zoom: r ? 1.1 : 1.2,
                       roam: !1,
                       showLegendSymbol: !1,
@@ -203,12 +252,12 @@
                   ]
                 }
               }),
-              (a.state = {}),
-              a
+              (n.state = {}),
+              n
             )
           }
           return (
-            Object(v.a)(t, e),
+            Object(g.a)(t, e),
             Object(p.a)(
               t,
               [
@@ -216,10 +265,10 @@
                   key: 'render',
                   value: function() {
                     var e = this.props.onClick
-                    return n.createElement(I.a, {
-                      className: M.a.mapbox,
+                    return a.createElement(D.a, {
+                      className: B.a.mapbox,
                       style: { height: '400px' },
-                      echarts: B.a,
+                      echarts: T.a,
                       option: this.getOption(),
                       notMerge: !0,
                       lazyUpdate: !1,
@@ -236,35 +285,26 @@
                 {
                   key: 'getDerivedStateFromProps',
                   value: function(e) {
-                    var t, a, n, r
-                    return m.a.async(function(i) {
+                    var t, a
+                    return m.a.async(function(r) {
                       for (;;)
-                        switch ((i.prev = i.next)) {
+                        switch ((r.prev = r.next)) {
                           case 0:
-                            if (((t = e.provinceName), '' !== (t || ''))) {
-                              i.next = 9
-                              break
-                            }
-                            return (
-                              (i.next = 5),
-                              m.a.awrap(
-                                y()({
-                                  method: 'get',
-                                  url:
-                                    'https://raw.githubusercontent.com/huanent/vue-echarts-map-demo/master/map/china.json'
-                                })
-                              )
-                            )
-                          case 5:
-                            ;(a = i.sent), B.a.registerMap('china', a.data), (i.next = 14)
-                            break
-                          case 9:
-                            return (n = O[t]), (i.next = 12), m.a.awrap(E(n))
-                          case 12:
-                            ;(r = i.sent), B.a.registerMap(n, r.data)
-                          case 14:
+                            ;(t = e.provinceName),
+                              '' === (t || '')
+                                ? n
+                                    .e(3)
+                                    .then(n.t.bind(null, 1031, 3))
+                                    .then(function(e) {
+                                      T.a.registerMap('china', e.default)
+                                    })
+                                : ((a = O[t]),
+                                  n(624)('./'.concat(a, '.json')).then(function(e) {
+                                    T.a.registerMap(a, e.default)
+                                  }))
+                          case 3:
                           case 'end':
-                            return i.stop()
+                            return r.stop()
                         }
                     })
                   }
@@ -273,86 +313,86 @@
             ),
             t
           )
-        })(n.Component),
-        U = (a(624), a(270)),
-        W = (a(418), a(184)),
-        Y = a(123),
-        F = a.n(Y),
-        J = function(e) {
-          return n.createElement(
+        })(a.Component),
+        U = (n(625), n(270)),
+        H = (n(418), n(184)),
+        F = n(123),
+        W = n.n(F),
+        Y = function(e) {
+          return a.createElement(
             'div',
-            { className: F.a.newsitem },
-            n.createElement(
+            { className: W.a.newsitem },
+            a.createElement(
               'p',
               null,
-              j()(e.news.pubDate).format('YYYY\u5e74MM\u6708DD\u65e5 HH:mm'),
+              k()(e.news.pubDate).format('YYYY\u5e74MM\u6708DD\u65e5 HH:mm'),
               ' (',
               e.news.pubDateStr,
               ')'
             ),
-            n.createElement(
-              W.a,
+            a.createElement(
+              H.a,
               { title: e.news.title },
-              n.createElement('p', { className: F.a.newscontent }, e.news.summary),
-              n.createElement(
+              a.createElement('p', { className: W.a.newscontent }, e.news.summary),
+              a.createElement(
                 'div',
-                { className: F.a.footer },
-                n.createElement(
+                { className: W.a.footer },
+                a.createElement(
                   'p',
                   null,
                   '\u5730\u533a:',
-                  n.createElement('span', { className: F.a.area }, e.news.provinceName)
+                  a.createElement('span', { className: W.a.area }, e.news.provinceName)
                 ),
-                n.createElement(
+                a.createElement(
                   'p',
                   {
                     onClick: function() {
-                      return P(e.news.sourceUrl)
+                      return q(e.news.sourceUrl)
                     }
                   },
                   '\u6765\u6e90:',
-                  n.createElement('span', { className: F.a.origin }, e.news.infoSource)
+                  a.createElement('span', { className: W.a.origin }, e.news.infoSource)
                 )
               )
             )
           )
         },
-        P = function(e) {
+        q = function(e) {
           window.open('about:blank').location.href = e
         },
-        q = function(e) {
+        P = function(e) {
           var t = e.newlist
-          return n.createElement(
+          return a.createElement(
             U.a,
             null,
             t.map(function(e, t) {
-              return n.createElement(U.a.Item, { key: t }, n.createElement(J, { news: e }))
+              return a.createElement(U.a.Item, { key: t }, a.createElement(Y, { news: e }))
             })
           )
         },
-        A = a(187),
-        R = a.n(A),
-        V = function(e) {
+        J = n(187),
+        A = n.n(J),
+        R = function(e) {
           var t = e.title,
-            a = e.count,
+            n = e.count,
             r = e.addcount,
             i = e.color
-          return n.createElement(
+          return a.createElement(
             'div',
-            { style: { color: i }, className: R.a.category },
-            n.createElement('p', null, t),
-            n.createElement('p', null, a, '\u4f8b'),
-            n.createElement(
+            { style: { color: i }, className: A.a.category },
+            a.createElement('p', null, t),
+            a.createElement('p', null, n, '\u4f8b'),
+            a.createElement(
               'p',
               null,
-              n.createElement('span', { className: R.a.tip }, '\u8f83\u6628\u65e5'),
-              n.createElement('span', { className: R.a.add }, '+', r)
+              a.createElement('span', { className: A.a.tip }, '\u8f83\u6628\u65e5'),
+              a.createElement('span', { className: A.a.add }, '+', r)
             )
           )
         },
-        G =
-          (a(641),
-          a(353),
+        V =
+          (n(642),
+          n(353),
           function(e) {
             return {
               tooltip: { trigger: 'item', formatter: '{a} <br/>{b} : {c} ({d}%)' },
@@ -374,26 +414,26 @@
               ]
             }
           }),
-        K = function(e) {
+        G = function(e) {
           var t = e.virusDesc,
-            a = [],
+            n = [],
             r = { name: '\u5728\u8bca\u4eba\u6570', value: t.confirmedCount - t.deadCount - t.curedCount },
             i = { name: '\u6b7b\u4ea1\u4eba\u6570', value: t.deadCount },
             o = { name: '\u6cbb\u6108\u4eba\u6570', value: t.curedCount }
           return (
-            a.push(r),
-            a.push(i),
-            a.push(o),
-            n.createElement(I.a, { echarts: B.a, option: G(a), notMerge: !0, lazyUpdate: !0 })
+            n.push(r),
+            n.push(i),
+            n.push(o),
+            a.createElement(D.a, { echarts: T.a, option: V(n), notMerge: !0, lazyUpdate: !0 })
           )
         },
-        Q = (a(654), a(423)),
-        X = a(142),
-        $ = a.n(X),
-        Z = function(e) {
+        K = (n(655), n(423)),
+        Q = n(142),
+        X = n.n(Q),
+        $ = function(e) {
           var t = e.rumorList
-          return n.createElement(
-            Q.a,
+          return a.createElement(
+            K.a,
             { style: { background: '#fff', height: '450px' } },
             t.map(function(e) {
               var t = ''
@@ -404,25 +444,25 @@
                   (t = 'https://assets.dxycdn.com/gitrepo/ncov-mobile/dist/static/badge-big@2x.5395c013.png'),
                 '\u5c1a\u65e0\u5b9a\u8bba' === e.explain &&
                   (t = 'https://assets.dxycdn.com/gitrepo/ncov-mobile/dist/static/badge-y-big@2x.c0fd84da.png'),
-                n.createElement(
+                a.createElement(
                   'div',
-                  { className: $.a.cardbox, key: e.id },
-                  n.createElement(
-                    W.a,
+                  { className: X.a.cardbox, key: e.id },
+                  a.createElement(
+                    H.a,
                     {
-                      className: $.a.card,
-                      cover: n.createElement('img', {
+                      className: X.a.card,
+                      cover: a.createElement('img', {
                         alt: '\u56fe\u7247',
                         style: { borderRadius: '20px 20px 0px 0px', opacity: 0.8, height: 200 },
                         src: e.imgsrc
                       })
                     },
-                    n.createElement('img', { src: t, alt: '', className: $.a.tip }),
-                    n.createElement(
+                    a.createElement('img', { src: t, alt: '', className: X.a.tip }),
+                    a.createElement(
                       'div',
                       null,
-                      n.createElement('p', { className: $.a.title }, e.title),
-                      n.createElement('p', null, e.desc)
+                      a.createElement('p', { className: X.a.title }, e.title),
+                      a.createElement('p', null, e.desc)
                     )
                   )
                 )
@@ -430,109 +470,109 @@
             })
           )
         },
-        ee =
-          (a(667),
-          a(687),
-          a(688),
-          function(e, t, a, n, r, i) {
+        Z =
+          (n(668),
+          n(688),
+          n(689),
+          function(e, t, n, a, r, i) {
             return {
               tooltip: { trigger: 'axis' },
-              legend: { orient: 'horizontal', left: 'center', data: n },
+              legend: { orient: 'horizontal', left: 'center', data: a },
               grid: { left: '3%', right: '4%', bottom: '3%', containLabel: !0 },
               xAxis: { type: 'category', boundaryGap: !1, data: e },
               yAxis: { type: 'value' },
               series: [
                 {
-                  name: n[0],
+                  name: a[0],
                   type: 'line',
                   stack: '\u603b\u91cf',
                   itemStyle: { normal: { color: r, lineStyle: { color: r } } },
                   data: t
                 },
                 {
-                  name: n[1],
+                  name: a[1],
                   type: 'line',
                   stack: '\u603b\u91cf',
                   itemStyle: { normal: { color: i, lineStyle: { color: i } } },
-                  data: a
+                  data: n
                 }
               ]
             }
           }),
-        te = function(e) {
+        ee = function(e) {
           var t = e.dateList,
-            a = e.firstList,
+            n = e.firstList,
             r = e.secondList,
             i = e.legendData,
             o = e.firstColor,
-            c = e.secondColor
-          return n.createElement(I.a, { echarts: B.a, option: ee(t, a, r, i, o, c), notMerge: !0, lazyUpdate: !0 })
+            s = e.secondColor
+          return a.createElement(D.a, { echarts: T.a, option: Z(t, n, r, i, o, s), notMerge: !0, lazyUpdate: !0 })
         },
-        ae = a(45),
-        ne = a.n(ae),
-        re = (function(e) {
+        te = n(45),
+        ne = n.n(te),
+        ae = (function(e) {
           function t(e) {
-            var a
+            var n
             return (
               Object(d.a)(this, t),
-              ((a = Object(h.a)(this, Object(f.a)(t).call(this, e))).initData = function() {
-                var e, t, n, r, i, o, c
-                return m.a.async(function(s) {
+              ((n = Object(h.a)(this, Object(f.a)(t).call(this, e))).initData = function() {
+                var e, t, a, r, i, o, s
+                return m.a.async(function(c) {
                   for (;;)
-                    switch ((s.prev = s.next)) {
+                    switch ((c.prev = c.next)) {
                       case 0:
                         return (
-                          (s.next = 2),
+                          (c.next = 2),
                           m.a.awrap(
                             y()({ method: 'get', url: 'http://api.tianapi.com/txapi/ncov/index?key='.concat(x) })
                           )
                         )
                       case 2:
                         return (
-                          200 === (e = s.sent).status &&
+                          200 === (e = c.sent).status &&
                             ((t = e.data.newslist[0]),
-                            (n = t.news),
+                            (a = t.news),
                             (r = t.desc),
-                            a.setState({ newsList: n, virusDesc: r, caseList: e.data.newslist[0].case })),
-                          (s.next = 6),
+                            n.setState({ newsList: a, virusDesc: r, caseList: e.data.newslist[0].case })),
+                          (c.next = 6),
                           m.a.awrap(
                             y()({ method: 'get', url: 'http://api.tianapi.com/txapi/ncovcity/index?key='.concat(x) })
                           )
                         )
                       case 6:
-                        ;(i = s.sent),
+                        ;(i = c.sent),
                           (o = i.data.newslist),
-                          (c = w(o)),
-                          a.setState({ staticList: o, mapList: c, loading: !1 }),
-                          a.getRumorList()
+                          (s = _(o)),
+                          n.setState({ staticList: o, mapList: s, loading: !1 }),
+                          n.getRumorList()
                       case 11:
                       case 'end':
-                        return s.stop()
+                        return c.stop()
                     }
                 })
               }),
-              (a.getRumorList = function() {
+              (n.getRumorList = function() {
                 var e, t
-                return m.a.async(function(n) {
+                return m.a.async(function(a) {
                   for (;;)
-                    switch ((n.prev = n.next)) {
+                    switch ((a.prev = a.next)) {
                       case 0:
                         return (
-                          (n.next = 2),
+                          (a.next = 2),
                           m.a.awrap(
                             y()({ method: 'get', url: 'http://api.tianapi.com/txapi/rumour/index?key='.concat(x) })
                           )
                         )
                       case 2:
-                        ;(e = n.sent), (t = e.data.newslist), a.setState({ rumorList: t })
+                        ;(e = a.sent), (t = e.data.newslist), n.setState({ rumorList: t })
                       case 5:
                       case 'end':
-                        return n.stop()
+                        return a.stop()
                     }
                 })
               }),
-              (a.getTrendList = function() {
-                var e, t, n, r, i, o, c, s, l, u, d, p
+              (n.getTrendList = function() {
+                var e, t, a, r, i, o, s, c, l, u, d, p
                 return m.a.async(function(h) {
                   for (;;)
                     switch ((h.prev = h.next)) {
@@ -544,28 +584,28 @@
                       case 2:
                         ;(e = h.sent),
                           (t = e.data.results),
-                          (n = []),
+                          (a = []),
                           (r = []),
                           (i = []),
                           (o = []),
-                          (c = []),
                           (s = []),
+                          (c = []),
                           (l = []),
                           (u = []),
                           (d = []),
                           (p = []),
                           t.forEach(function(e) {
-                            n.push(j()(e.updateTime).format('MM-DD')),
+                            a.push(k()(e.updateTime).format('MM-DD')),
                               r.push(e.confirmedCount),
                               i.push(e.suspectedCount),
                               o.push(e.deadCount),
-                              c.push(e.curedCount)
+                              s.push(e.curedCount)
                           }),
-                          n.reverse().forEach(function(e, t) {
-                            e !== n[t + 1] && (s.push(e), l.push(r[t]), u.push(i[t]), d.push(o[t]), p.push(c[t]))
+                          a.reverse().forEach(function(e, t) {
+                            e !== a[t + 1] && (c.push(e), l.push(r[t]), u.push(i[t]), d.push(o[t]), p.push(s[t]))
                           }),
-                          a.setState({
-                            dateList: s,
+                          n.setState({
+                            dateList: c,
                             confirmedTrendList: l.reverse(),
                             suspectedTrendList: u.reverse(),
                             deadTrendList: d.reverse(),
@@ -578,40 +618,40 @@
                     }
                 })
               }),
-              (a.toProvince = function(e) {
+              (n.toProvince = function(e) {
                 var t,
-                  n = a.state.staticList,
+                  a = n.state.staticList,
                   r = [],
                   i = !0,
                   o = !1,
-                  c = void 0
+                  s = void 0
                 try {
-                  for (var s, l = n[Symbol.iterator](); !(i = (s = l.next()).done); i = !0) {
-                    var u = s.value
+                  for (var c, l = a[Symbol.iterator](); !(i = (c = l.next()).done); i = !0) {
+                    var u = c.value
                     if (e === u.provinceShortName) {
                       ;(r = u.cities), (t = u.provinceName)
                       break
                     }
                   }
                 } catch (d) {
-                  ;(o = !0), (c = d)
+                  ;(o = !0), (s = d)
                 } finally {
                   try {
                     i || null == l.return || l.return()
                   } finally {
-                    if (o) throw c
+                    if (o) throw s
                   }
                 }
                 if (0 !== r.length) {
-                  var m = b(r, t)
-                  a.setState({ provinceName: e, mapList: m })
+                  var m = w(r, t)
+                  n.setState({ provinceName: e, mapList: m })
                 }
               }),
-              (a.toCountry = function() {
-                var e = w(a.state.staticList)
-                a.setState({ provinceName: '', mapList: e })
+              (n.toCountry = function() {
+                var e = _(n.state.staticList)
+                n.setState({ provinceName: '', mapList: e })
               }),
-              (a.state = {
+              (n.state = {
                 timer: null,
                 newsList: [],
                 caseList: [],
@@ -646,11 +686,11 @@
                 loading: !0,
                 trendLoading: !0
               }),
-              a
+              n
             )
           }
           return (
-            Object(v.a)(t, e),
+            Object(g.a)(t, e),
             Object(p.a)(t, [
               {
                 key: 'componentDidMount',
@@ -676,7 +716,7 @@
                 value: function() {
                   var e = this,
                     t = this.state,
-                    a = t.virusDesc,
+                    n = t.virusDesc,
                     r = t.mapList,
                     i = t.provinceName,
                     o = t.tabIndex,
@@ -686,8 +726,8 @@
                     p = t.confirmedTrendList,
                     h = t.suspectedTrendList,
                     f = t.deadTrendList,
-                    v = t.curedTrendList,
-                    g = t.loading,
+                    g = t.curedTrendList,
+                    v = t.loading,
                     y = t.trendLoading,
                     x = [
                       { title: '\u5730\u533a', dataIndex: 'name', key: 'name' },
@@ -695,24 +735,24 @@
                       { title: '\u6b7b\u4ea1', dataIndex: 'deadCount', key: 'deadCount' },
                       { title: '\u6cbb\u6108', dataIndex: 'curedCount', key: 'curedCount' }
                     ]
-                  return n.createElement(
-                    c.a,
-                    { loading: g, active: !0, paragraph: { rows: 50 } },
-                    n.createElement(
+                  return a.createElement(
+                    s.a,
+                    { loading: v, active: !0, paragraph: { rows: 50 } },
+                    a.createElement(
                       'div',
                       null,
-                      n.createElement(
+                      a.createElement(
                         'div',
                         { className: ne.a.top },
-                        n.createElement(
+                        a.createElement(
                           'p',
                           { className: ne.a.title },
                           '\u65b0\u578b\u51a0\u72b6\u75c5\u6bd2\u80ba\u708e\u75ab\u60c5'
                         ),
-                        n.createElement('p', { className: ne.a.tip }, '\u5b9e\u65f6\u52a8\u6001')
+                        a.createElement('p', { className: ne.a.tip }, '\u5b9e\u65f6\u52a8\u6001')
                       ),
-                      n.createElement(
-                        k.a,
+                      a.createElement(
+                        L.a,
                         {
                           tabs: [
                             { title: '\u75ab\u60c5\u5730\u56fe' },
@@ -725,100 +765,100 @@
                           tabBarInactiveTextColor: '#616161',
                           tabBarActiveTextColor: '#6C63FF',
                           tabBarUnderlineStyle: { border: '1px #6C63FF solid' },
-                          onChange: function(t, a) {
-                            e.setState({ tabIndex: a }), 1 === a && e.getTrendList()
+                          onChange: function(t, n) {
+                            e.setState({ tabIndex: n }), 1 === n && e.getTrendList()
                           }
                         },
-                        n.createElement(
+                        a.createElement(
                           'div',
                           { className: ne.a.map },
-                          n.createElement('span', { className: ne.a.allCountry }, '\u5168\u56fd'),
-                          n.createElement(
+                          a.createElement('span', { className: ne.a.allCountry }, '\u5168\u56fd'),
+                          a.createElement(
                             'span',
                             null,
                             '\u622a\u81f3',
-                            j()(a.modifyTime).format('YYYY\u5e74MM\u6708DD\u65e5 HH:mm'),
+                            k()(n.modifyTime).format('YYYY\u5e74MM\u6708DD\u65e5 HH:mm'),
                             '(\u5317\u4eac\u65f6\u95f4)'
                           ),
-                          n.createElement('span', null, '\u7edf\u8ba1'),
-                          n.createElement(
+                          a.createElement('span', null, '\u7edf\u8ba1'),
+                          a.createElement(
                             'div',
                             { className: ne.a.category },
-                            n.createElement(V, {
+                            a.createElement(R, {
                               title: '\u786e\u8bca',
-                              count: a.confirmedCount,
-                              addcount: a.confirmedIncr,
+                              count: n.confirmedCount,
+                              addcount: n.confirmedIncr,
                               color: '#e57471'
                             }),
-                            n.createElement(V, {
+                            a.createElement(R, {
                               title: '\u7591\u4f3c',
-                              count: a.suspectedCount,
-                              addcount: a.suspectedIncr,
+                              count: n.suspectedCount,
+                              addcount: n.suspectedIncr,
                               color: '#dda451'
                             }),
-                            n.createElement(V, {
+                            a.createElement(R, {
                               title: '\u91cd\u75c7',
-                              count: a.seriousCount,
-                              addcount: a.seriousIncr,
+                              count: n.seriousCount,
+                              addcount: n.seriousIncr,
                               color: '#5d4037'
                             }),
-                            n.createElement(V, {
+                            a.createElement(R, {
                               title: '\u6b7b\u4ea1',
-                              count: a.deadCount,
-                              addcount: a.deadIncr,
+                              count: n.deadCount,
+                              addcount: n.deadIncr,
                               color: '#919399'
                             }),
-                            n.createElement(V, {
+                            a.createElement(R, {
                               title: '\u6cbb\u6108',
-                              count: a.curedCount,
-                              addcount: a.curedIncr,
+                              count: n.curedCount,
+                              addcount: n.curedIncr,
                               color: '#7ebe50'
                             })
                           ),
-                          n.createElement(
-                            L.a,
+                          a.createElement(
+                            j.a,
                             null,
-                            n.createElement(
-                              L.a.Body,
+                            a.createElement(
+                              j.a.Body,
                               { className: ne.a.card },
-                              n.createElement(
+                              a.createElement(
                                 'div',
                                 null,
-                                n.createElement('span', null, '\u75c5\u6bd2\uff1a'),
-                                a.virus
+                                a.createElement('span', null, '\u75c5\u6bd2\uff1a'),
+                                n.virus
                               ),
-                              n.createElement(
+                              a.createElement(
                                 'div',
                                 null,
-                                n.createElement('span', null, '\u4f20\u67d3\u6e90\uff1a'),
-                                a.infectSource
+                                a.createElement('span', null, '\u4f20\u67d3\u6e90\uff1a'),
+                                n.infectSource
                               ),
-                              n.createElement('div', null, a.remark1),
-                              n.createElement('div', null, a.remark2),
-                              n.createElement(
+                              a.createElement('div', null, n.remark1),
+                              a.createElement('div', null, n.remark2),
+                              a.createElement(
                                 'div',
                                 null,
-                                n.createElement('span', null, '\u4f20\u64ad\u9014\u5f84\uff1a'),
-                                a.passWay
+                                a.createElement('span', null, '\u4f20\u64ad\u9014\u5f84\uff1a'),
+                                n.passWay
                               )
                             )
                           ),
-                          n.createElement(H, { provinceName: i, mapList: r, onClick: this.toProvince }),
+                          a.createElement(M, { provinceName: i, mapList: r, onClick: this.toProvince }),
                           i
-                            ? n.createElement(
+                            ? a.createElement(
                                 'div',
                                 { className: ne.a.maptip, onClick: this.toCountry },
                                 '\u8fd4\u56de\u5168\u56fd'
                               )
                             : null
                         ),
-                        n.createElement(
+                        a.createElement(
                           'div',
                           { className: ne.a.trendBox },
-                          n.createElement(
-                            c.a,
+                          a.createElement(
+                            s.a,
                             { loading: y, active: !0, paragraph: { rows: 15 } },
-                            n.createElement(te, {
+                            a.createElement(ee, {
                               dateList: d,
                               firstList: p,
                               secondList: h,
@@ -826,24 +866,24 @@
                               secondColor: '#dda451',
                               legendData: ['\u786e\u8bca\u4eba\u6570', '\u7591\u4f3c\u4eba\u6570']
                             }),
-                            n.createElement(s.a, null),
-                            n.createElement(te, {
+                            a.createElement(c.a, null),
+                            a.createElement(ee, {
                               dateList: d,
                               firstList: f,
-                              secondList: v,
+                              secondList: g,
                               firstColor: '#919399',
                               secondColor: '#7ebe50',
                               legendData: ['\u6b7b\u4ea1\u4eba\u6570', '\u6cbb\u6108\u4eba\u6570']
                             }),
-                            n.createElement(s.a, null),
-                            n.createElement(K, { virusDesc: a })
+                            a.createElement(c.a, null),
+                            a.createElement(G, { virusDesc: n })
                           )
                         ),
-                        n.createElement('div', { className: ne.a.newsBox }, n.createElement(q, { newlist: u })),
-                        n.createElement('div', { className: ne.a.rumorBox }, n.createElement(Z, { rumorList: m }))
+                        a.createElement('div', { className: ne.a.newsBox }, a.createElement(P, { newlist: u })),
+                        a.createElement('div', { className: ne.a.rumorBox }, a.createElement($, { rumorList: m }))
                       ),
                       0 === o
-                        ? n.createElement(l.a, {
+                        ? a.createElement(l.a, {
                             className: ne.a.table,
                             columns: x,
                             pagination: !1,
@@ -851,9 +891,9 @@
                               return (function(e) {
                                 var t = []
                                 return (
-                                  e.provinceName && (t = b(e.cities, e.provinceName)),
+                                  e.provinceName && (t = w(e.cities, e.provinceName)),
                                   t.length > 0
-                                    ? n.createElement(l.a, {
+                                    ? a.createElement(l.a, {
                                         columns: x,
                                         showHeader: !1,
                                         rowKey: function(e) {
@@ -874,16 +914,16 @@
                         : null
                     ),
                     0 === o
-                      ? n.createElement(
+                      ? a.createElement(
                           'div',
                           { className: ne.a.footer },
-                          n.createElement('p', null, '\u6b66\u6c49\u52a0\u6cb9\u5440~'),
-                          n.createElement(
+                          a.createElement('p', null, '\u6b66\u6c49\u52a0\u6cb9\u5440~'),
+                          a.createElement(
                             'a',
                             { href: 'http://www.beian.miit.gov.cn/', target: 'view_window' },
                             '\u6e1dICP\u590717013916\u53f7'
                           ),
-                          n.createElement('a', { href: 'https://github.com/xieyezi', target: 'view_window' }, 'Github')
+                          a.createElement('a', { href: 'https://github.com/xieyezi', target: 'view_window' }, 'Github')
                         )
                       : null
                   )
@@ -892,17 +932,17 @@
             ]),
             t
           )
-        })(n.Component),
-        ie = function() {
-          return r.a.createElement('div', { className: 'App' }, r.a.createElement(re, null))
+        })(a.Component),
+        re = function() {
+          return r.a.createElement('div', { className: 'App' }, r.a.createElement(ae, null))
         }
       Boolean(
         'localhost' === window.location.hostname ||
           '[::1]' === window.location.hostname ||
           window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
       )
-      a(791)
-      o.a.render(r.a.createElement(ie, null), document.getElementById('root')),
+      n(792)
+      o.a.render(r.a.createElement(re, null), document.getElementById('root')),
         'serviceWorker' in navigator &&
           navigator.serviceWorker.ready.then(function(e) {
             e.unregister()

@@ -182,25 +182,25 @@ class Home extends Component<HomeProps, HomeState> {
   }
   toProvince = (province) => {
     //TODO: 地图下钻有问题，待修复
-    return
+    // return
     // console.log(province)
-    // const { staticList } = this.state
-    // let cites: [] = []
-    // let provinceName
-    // for (let item of staticList as any) {
-    //   if (province === item.provinceShortName) {
-    //     cites = item.cities
-    //     provinceName = item.provinceName
-    //     break
-    //   }
-    // }
-    // if (cites.length !== 0) {
-    //   const maplist = getMapProvinceData(cites, provinceName)
-    //   this.setState({
-    //     provinceName: province,
-    //     mapList: maplist
-    //   })
-    // }
+    const { staticList } = this.state
+    let cites: [] = []
+    let provinceName
+    for (let item of staticList as any) {
+      if (province === item.provinceShortName) {
+        cites = item.cities
+        provinceName = item.provinceName
+        break
+      }
+    }
+    if (cites.length !== 0) {
+      const maplist = getMapProvinceData(cites, provinceName)
+      this.setState({
+        provinceName: province,
+        mapList: maplist
+      })
+    }
   }
   toCountry = () => {
     const { staticList } = this.state
