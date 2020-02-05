@@ -54,8 +54,8 @@
         r = a.n(n),
         i = a(11),
         o = a.n(i),
-        s = (a(433), a(434), a(435), a(269)),
-        c = (a(437), a(267)),
+        c = (a(433), a(434), a(435), a(269)),
+        s = (a(437), a(267)),
         l = (a(995), a(268)),
         u = a(56),
         m = a.n(u),
@@ -162,21 +162,6 @@
                   n = e.mapList,
                   r = t ? B[t] : ''
                 return {
-                  tooltip: {
-                    show: !0,
-                    formatter: function(e) {
-                      return (
-                        e.name +
-                        '\uff1a<br>\u786e\u8bca\uff1a' +
-                        e.data.value +
-                        '\u4f8b<br>\u6b7b\u4ea1\uff1a' +
-                        e.data.deadCount +
-                        '\u4f8b<br>\u6cbb\u6108\uff1a' +
-                        e.data.curedCount +
-                        '\u4f8b'
-                      )
-                    }
-                  },
                   visualMap: {
                     show: !0,
                     type: 'piecewise',
@@ -207,14 +192,12 @@
                       left: 'center',
                       type: 'map',
                       name: '\u786e\u8bca\u4eba\u6570',
-                      silent: !!r,
                       label: { show: !0, position: 'inside', fontSize: 6 },
                       mapType: r || 'china',
                       data: n,
                       zoom: 1.2,
                       roam: !1,
                       showLegendSymbol: !1,
-                      emphasis: {},
                       rippleEffect: { show: !0, brushType: 'stroke', scale: 2.5, period: 4 }
                     }
                   ]
@@ -258,12 +241,12 @@
                       for (;;)
                         switch ((i.prev = i.next)) {
                           case 0:
-                            if (((t = e.provinceName), '' !== (t || ''))) {
-                              i.next = 9
+                            if ((console.log(e), (t = e.provinceName), '' !== (t || ''))) {
+                              i.next = 10
                               break
                             }
                             return (
-                              (i.next = 5),
+                              (i.next = 6),
                               m.a.awrap(
                                 y()({
                                   method: 'get',
@@ -272,14 +255,14 @@
                                 })
                               )
                             )
-                          case 5:
-                            ;(a = i.sent), O.a.registerMap('china', a.data), (i.next = 14)
+                          case 6:
+                            ;(a = i.sent), O.a.registerMap('china', a.data), (i.next = 15)
                             break
-                          case 9:
-                            return (n = B[t]), (i.next = 12), m.a.awrap(_(n))
-                          case 12:
+                          case 10:
+                            return (n = B[t]), (i.next = 13), m.a.awrap(_(n))
+                          case 13:
                             ;(r = i.sent), O.a.registerMap(n, r.data)
-                          case 14:
+                          case 15:
                           case 'end':
                             return i.stop()
                         }
@@ -482,8 +465,8 @@
             r = e.secondList,
             i = e.legendData,
             o = e.firstColor,
-            s = e.secondColor
-          return n.createElement(I.a, { echarts: O.a, option: ee(t, a, r, i, o, s), notMerge: !0, lazyUpdate: !0 })
+            c = e.secondColor
+          return n.createElement(I.a, { echarts: O.a, option: ee(t, a, r, i, o, c), notMerge: !0, lazyUpdate: !0 })
         },
         ae = a(45),
         ne = a.n(ae),
@@ -493,38 +476,38 @@
             return (
               Object(d.a)(this, t),
               ((a = Object(h.a)(this, Object(f.a)(t).call(this, e))).initData = function() {
-                var e, t, n, r, i, o, s
-                return m.a.async(function(c) {
+                var e, t, n, r, i, o, c
+                return m.a.async(function(s) {
                   for (;;)
-                    switch ((c.prev = c.next)) {
+                    switch ((s.prev = s.next)) {
                       case 0:
                         return (
-                          (c.next = 2),
+                          (s.next = 2),
                           m.a.awrap(
                             y()({ method: 'get', url: 'http://api.tianapi.com/txapi/ncov/index?key='.concat(E) })
                           )
                         )
                       case 2:
                         return (
-                          200 === (e = c.sent).status &&
+                          200 === (e = s.sent).status &&
                             ((t = e.data.newslist[0]),
                             (n = t.news),
                             (r = t.desc),
                             a.setState({ newsList: n, virusDesc: r, caseList: e.data.newslist[0].case })),
-                          (c.next = 6),
+                          (s.next = 6),
                           m.a.awrap(
                             y()({ method: 'get', url: 'http://api.tianapi.com/txapi/ncovcity/index?key='.concat(E) })
                           )
                         )
                       case 6:
-                        ;(i = c.sent),
+                        ;(i = s.sent),
                           (o = i.data.newslist),
-                          (s = x(o)),
-                          a.setState({ staticList: o, mapList: s, loading: !1 }),
+                          (c = x(o)),
+                          a.setState({ staticList: o, mapList: c, loading: !1 }),
                           a.getRumorList()
                       case 11:
                       case 'end':
-                        return c.stop()
+                        return s.stop()
                     }
                 })
               }),
@@ -549,7 +532,7 @@
                 })
               }),
               (a.getTrendList = function() {
-                var e, t, n, r, i, o, s, c, l, u, d, p
+                var e, t, n, r, i, o, c, s, l, u, d, p
                 return m.a.async(function(h) {
                   for (;;)
                     switch ((h.prev = h.next)) {
@@ -565,8 +548,8 @@
                           (r = []),
                           (i = []),
                           (o = []),
-                          (s = []),
                           (c = []),
+                          (s = []),
                           (l = []),
                           (u = []),
                           (d = []),
@@ -576,13 +559,13 @@
                               r.push(e.confirmedCount),
                               i.push(e.suspectedCount),
                               o.push(e.deadCount),
-                              s.push(e.curedCount)
+                              c.push(e.curedCount)
                           }),
                           n.reverse().forEach(function(e, t) {
-                            e !== n[t + 1] && (c.push(e), l.push(r[t]), u.push(i[t]), d.push(o[t]), p.push(s[t]))
+                            e !== n[t + 1] && (s.push(e), l.push(r[t]), u.push(i[t]), d.push(o[t]), p.push(c[t]))
                           }),
                           a.setState({
-                            dateList: c,
+                            dateList: s,
                             confirmedTrendList: l.reverse(),
                             suspectedTrendList: u.reverse(),
                             deadTrendList: d.reverse(),
@@ -601,22 +584,22 @@
                   r = [],
                   i = !0,
                   o = !1,
-                  s = void 0
+                  c = void 0
                 try {
-                  for (var c, l = n[Symbol.iterator](); !(i = (c = l.next()).done); i = !0) {
-                    var u = c.value
+                  for (var s, l = n[Symbol.iterator](); !(i = (s = l.next()).done); i = !0) {
+                    var u = s.value
                     if (e === u.provinceShortName) {
                       ;(r = u.cities), (t = u.provinceName)
                       break
                     }
                   }
                 } catch (d) {
-                  ;(o = !0), (s = d)
+                  ;(o = !0), (c = d)
                 } finally {
                   try {
                     i || null == l.return || l.return()
                   } finally {
-                    if (o) throw s
+                    if (o) throw c
                   }
                 }
                 if (0 !== r.length) {
@@ -713,7 +696,7 @@
                       { title: '\u6cbb\u6108', dataIndex: 'curedCount', key: 'curedCount' }
                     ]
                   return n.createElement(
-                    s.a,
+                    c.a,
                     { loading: g, active: !0, paragraph: { rows: 50 } },
                     n.createElement(
                       'div',
@@ -833,7 +816,7 @@
                           'div',
                           { className: ne.a.trend },
                           n.createElement(
-                            s.a,
+                            c.a,
                             { loading: y, active: !0, paragraph: { rows: 15 } },
                             n.createElement(te, {
                               dateList: d,
@@ -843,7 +826,7 @@
                               secondColor: '#dda451',
                               legendData: ['\u786e\u8bca\u4eba\u6570', '\u7591\u4f3c\u4eba\u6570']
                             }),
-                            n.createElement(c.a, null),
+                            n.createElement(s.a, null),
                             n.createElement(te, {
                               dateList: d,
                               firstList: f,
@@ -852,7 +835,7 @@
                               secondColor: '#7ebe50',
                               legendData: ['\u6b7b\u4ea1\u4eba\u6570', '\u6cbb\u6108\u4eba\u6570']
                             }),
-                            n.createElement(c.a, null),
+                            n.createElement(s.a, null),
                             n.createElement(Q, { virusDesc: a })
                           )
                         ),

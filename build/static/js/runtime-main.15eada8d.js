@@ -64,7 +64,7 @@
     (i.o = function(e, r) {
       return Object.prototype.hasOwnProperty.call(e, r)
     }),
-    (i.p = './dist')
+    (i.p = '/')
   var l = (this['webpackJsonpwuhan-virus'] = this['webpackJsonpwuhan-virus'] || []),
     a = l.push.bind(l)
   ;(l.push = r), (l = l.slice())

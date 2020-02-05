@@ -22,7 +22,7 @@ class Map extends Component<MapProps, MapState> {
     this.state = {}
   }
   static async getDerivedStateFromProps(newProps) {
-    //console.log(newProps)
+    console.log(newProps)
     const { provinceName } = newProps
     const province = provinceName ? provinceName : ''
     if (province === '') {
@@ -32,35 +32,31 @@ class Map extends Component<MapProps, MapState> {
     } else {
       let pinyinName = provinceMap[provinceName]
       const provinceMapJson = await getProvinceJson(pinyinName)
-      // console.log(provinceMapJson.data)
       echarts.registerMap(pinyinName, provinceMapJson.data)
     }
   }
-  // async componentDidMount() {
-
-  // }
-  // async UNSAFE_componentWillReceiveProps(newProps) {
-
-  // }
   getOption = () => {
     const { provinceName, mapList } = this.props
     const province = provinceName ? provinceMap[provinceName] : ''
     const option = {
-      tooltip: {
-        show: true,
-        formatter: function(params) {
-          let tip =
-            params.name +
-            '：<br>确诊：' +
-            params.data['value'] +
-            '例<br>死亡：' +
-            params.data['deadCount'] +
-            '例<br>治愈：' +
-            params.data['curedCount'] +
-            '例'
-          return tip
-        }
-      },
+      // tooltip: {
+      //   show: true,
+      //   formatter: function(params) {
+      //     let tip = ''
+      //     if (params.data) {
+      //       tip =
+      //         params.name +
+      //         '：<br>确诊：' +
+      //         params.data['value'] +
+      //         '例<br>死亡：' +
+      //         params.data['deadCount'] +
+      //         '例<br>治愈：' +
+      //         params.data['curedCount'] +
+      //         '例'
+      //     }
+      //     return tip
+      //   }
+      // },
       visualMap: {
         show: true,
         type: 'piecewise',
@@ -95,7 +91,7 @@ class Map extends Component<MapProps, MapState> {
           left: 'center',
           type: 'map',
           name: '确诊人数',
-          silent: province ? true : false,
+          // silent: province ? true : false,
           label: {
             show: true,
             position: 'inside',
@@ -104,10 +100,9 @@ class Map extends Component<MapProps, MapState> {
           },
           mapType: province ? province : 'china',
           data: mapList,
-          zoom: 1.2,
+          zoom: province ? 1.1 : 1.2,
           roam: false,
           showLegendSymbol: false,
-          emphasis: {},
           rippleEffect: {
             show: true,
             brushType: 'stroke',
@@ -128,7 +123,7 @@ class Map extends Component<MapProps, MapState> {
         echarts={echarts}
         option={this.getOption()}
         notMerge={true}
-        lazyUpdate={true}
+        lazyUpdate={false}
         onEvents={{
           click(e) {
             onClick(e.name)

@@ -15,6 +15,7 @@ import Pie from '../pie/Pie'
 import Rumor from '../rumor/Rumor'
 import Line from '../line/Line'
 import styles from './style.module.css'
+// const Map =React.lazy(() => import('../map/Map'))
 
 export interface HomeProps {}
 export interface HomeState {
@@ -197,8 +198,6 @@ class Home extends Component<HomeProps, HomeState> {
         provinceName: province,
         mapList: maplist
       })
-    } else {
-      return
     }
   }
   toCountry = () => {
@@ -264,12 +263,12 @@ class Home extends Component<HomeProps, HomeState> {
             tabBarActiveTextColor="#6C63FF"
             tabBarUnderlineStyle={{ border: '1px #6C63FF solid' }}
             onChange={(tab, index) => {
-              if (index === 1) {
-                this.getTrendList()
-              }
               this.setState({
                 tabIndex: index
               })
+              if (index === 1) {
+                this.getTrendList()
+              }
             }}
           >
             <div className={styles.map}>
@@ -331,7 +330,7 @@ class Home extends Component<HomeProps, HomeState> {
                 </div>
               ) : null}
             </div>
-            <div className={styles.trend}>
+            <div className={styles.trendBox}>
               <Skeleton loading={trendLoading} active paragraph={{ rows: 15 }}>
                 <Line
                   dateList={dateList}

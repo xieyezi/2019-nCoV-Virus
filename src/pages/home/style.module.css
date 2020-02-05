@@ -52,7 +52,7 @@
 .maptip {
     display: flex;
     justify-content: flex-start;
-    font-size: 16px;
+    font-size: 14px;
     padding-left: 10px;
     color: #6C63FF;
     line-height: 18px;
@@ -70,8 +70,9 @@
     margin: 0 auto;
     background: #fff;
 }
-.trend{
+.trendBox{
   margin-top: 30px;
+  margin-bottom: 20px;
 }
 .rumorBox{
   width: 90%;
@@ -80,13 +81,13 @@
   background: #fff;
 }
 .footer {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  /* margin-bottom: 30px; */
   background: #fff;
   display: flex;
   justify-content: space-around;
   text-align: center;
-  font-size: xx-small;
+  font-size: 12px;
   color: #6C63FF;
   line-height: 14px;
 }
