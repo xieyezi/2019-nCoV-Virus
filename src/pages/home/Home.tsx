@@ -2,11 +2,11 @@ import * as React from 'react'
 import { Component } from 'react'
 import { getVirusDataOnTime, getVirusDataStatic, getRumor, getTrend } from '../../services/getData'
 import { getMapData, getMapProvinceData } from '../../utils/getMapData'
-import Card from 'antd-mobile/lib/card'
+// import Card from 'antd-mobile/lib/card'
 import Tabs from 'antd-mobile/lib/tabs'
-import 'antd-mobile/lib/card/style/css'
+// import 'antd-mobile/lib/card/style/css'
 import 'antd-mobile/lib/tabs/style/css'
-import { Table, Divider, Skeleton } from 'antd'
+import { Table, Divider, Skeleton, Select } from 'antd'
 import dayjs from 'dayjs'
 import Map from '../map/Map'
 import NewsList from '../news/News'
@@ -15,7 +15,7 @@ import Pie from '../pie/Pie'
 import Rumor from '../rumor/Rumor'
 import Line from '../line/Line'
 import styles from './style.module.css'
-// const Map =React.lazy(() => import('../map/Map'))
+const { Option } = Select
 
 export interface HomeProps {}
 export interface HomeState {
@@ -30,6 +30,7 @@ export interface HomeState {
   suspectedTrendList: []
   deadTrendList: []
   curedTrendList: []
+  provinceList: []
   virusDesc?: {
     confirmedCount: number
     suspectedCount: number
@@ -89,6 +90,7 @@ class Home extends Component<HomeProps, HomeState> {
       suspectedTrendList: [],
       deadTrendList: [],
       curedTrendList: [],
+      provinceList: [],
       loading: true,
       trendLoading: true
     }
@@ -124,9 +126,15 @@ class Home extends Component<HomeProps, HomeState> {
     const { newslist } = resuslt.data
     // console.log(newslist)
     const maplist = getMapData(newslist)
+    let provinceArr = [] as any
+    provinceArr.push('全国')
+    maplist.forEach((item) => {
+      provinceArr.push(item.provinceShortName)
+    })
     this.setState({
       staticList: newslist,
       mapList: maplist,
+      provinceList: provinceArr,
       loading: false
     })
     this.getRumorList()
@@ -182,6 +190,7 @@ class Home extends Component<HomeProps, HomeState> {
   }
   toProvince = (province) => {
     //TODO: 地图下钻有问题，待修复
+    // console.log(province)
     const { staticList } = this.state
     let cites: [] = []
     let provinceName
@@ -198,16 +207,22 @@ class Home extends Component<HomeProps, HomeState> {
         provinceName: province,
         mapList: maplist
       })
+    } else {
+      const maplist = getMapData(staticList)
+      this.setState({
+        provinceName: '',
+        mapList: maplist
+      })
     }
   }
-  toCountry = () => {
-    const { staticList } = this.state
-    const maplist = getMapData(staticList)
-    this.setState({
-      provinceName: '',
-      mapList: maplist
-    })
-  }
+  // toCountry = () => {
+  //   const { staticList } = this.state
+  //   const maplist = getMapData(staticList)
+  //   this.setState({
+  //     provinceName: '',
+  //     mapList: maplist
+  //   })
+  // }
   render() {
     const {
       virusDesc,
@@ -221,6 +236,7 @@ class Home extends Component<HomeProps, HomeState> {
       suspectedTrendList,
       deadTrendList,
       curedTrendList,
+      provinceList,
       loading,
       trendLoading
     } = this.state
@@ -305,7 +321,7 @@ class Home extends Component<HomeProps, HomeState> {
                   color={'#7ebe50'}
                 />
               </div>
-              <Card>
+              {/* <Card>
                 <Card.Body className={styles.card}>
                   <div>{virusDesc.note1}</div>
                   <div>{virusDesc.note2}</div>
@@ -313,13 +329,21 @@ class Home extends Component<HomeProps, HomeState> {
                   <div>{virusDesc.remark2}</div>
                   <div>{virusDesc.note3}</div>
                 </Card.Body>
-              </Card>
-              <Map provinceName={provinceName} mapList={mapList} onClick={this.toProvince} />
-              {provinceName ? (
-                <div className={styles.maptip} onClick={this.toCountry}>
-                  返回全国
-                </div>
-              ) : null}
+              </Card> */}
+              <Divider />
+              <div>
+                <p>各省最新疫情查询（点击选择具体省份）：</p>
+                <Select defaultValue="全国" style={{ width: '90%' }} onChange={this.toProvince}>
+                  {provinceList.map((item, index) => {
+                    return (
+                      <Option value={item} key={index}>
+                        {item}
+                      </Option>
+                    )
+                  })}
+                </Select>
+              </div>
+              {mapList.length > 0 ? <Map provinceName={provinceName} mapList={mapList} /> : null}
             </div>
             <div className={styles.newsBox}>
               <NewsList newlist={newsList} />

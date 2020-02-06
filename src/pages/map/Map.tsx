@@ -6,47 +6,80 @@ import 'echarts/lib/chart/map'
 import 'echarts/lib/component/visualMap'
 import 'echarts/lib/component/tooltip'
 import provinceMap from '../../map/province-map'
-// import { getChinaJson, getProvinceJson } from '../../services/getData'
+import { getChinaJson, getProvinceJson } from '../../services/getData'
 import styles from './style.module.css'
 export interface MapProps {
   provinceName?: string
   mapList: []
-  onClick: (val) => void
+  // onClick: (val) => void
 }
 
-export interface MapState {}
+export interface MapState {
+  province: string
+  mapList: []
+}
 
 class Map extends Component<MapProps, MapState> {
+  echarts_react: any = undefined
   constructor(props: MapProps) {
     super(props)
-    this.state = {}
-  }
-  static async getDerivedStateFromProps(newProps) {
-    // console.log(newProps)
-    const { provinceName } = newProps
-    const province = provinceName ? provinceName : ''
-    if (province === '') {
-      // const chinaMapJson = await getChinaJson()
-      import(`echarts/map/json/china.json`).then((map) => {
-        // console.log(map)
-        echarts.registerMap('china', map.default)
-      })
-      // console.log(chinaMapJson.data)
-      // echarts.registerMap('china', chinaMapJson.data)
-    } else {
-      let pinyinName = provinceMap[provinceName]
-      //const provinceMapJson = await getProvinceJson(pinyinName)
-      // echarts.registerMap(pinyinName, provinceMapJson.data)
-      import(`echarts/map/json/province/${pinyinName}.json`).then((map) => {
-        // console.log(map)
-        echarts.registerMap(pinyinName, map.default)
-      })
+    this.echarts_react = React.createRef()
+    this.state = {
+      province: '',
+      mapList: []
     }
   }
-  getOption = () => {
+  async componentDidMount() {
     const { provinceName, mapList } = this.props
     const province = provinceName ? provinceMap[provinceName] : ''
+    const chinaMapJson = await getChinaJson()
+    echarts.registerMap('china', chinaMapJson.data)
+    this.setState({
+      province: province,
+      mapList: mapList
+    })
+  }
+  async UNSAFE_componentWillReceiveProps(newProps) {
+    const { provinceName, mapList } = newProps
+    const province = provinceName ? provinceMap[provinceName] : ''
+    // console.log(province)
+    // console.log(mapList)
+    if (province === '') {
+      const chinaMapJson = await getChinaJson()
+      echarts.registerMap('china', chinaMapJson.data)
+    } else {
+      const provinceMapJson = await getProvinceJson(province)
+      echarts.registerMap(province, provinceMapJson.data)
+    }
+    this.setState({
+      province: province,
+      mapList: mapList
+    })
+  }
+  componentWillUnmount() {
+    console.log('卸载....')
+  }
+  getOption = () => {
+    const { province, mapList } = this.state
     const option = {
+      tooltip: {
+        show: true,
+        formatter: function(params) {
+          let tip = ''
+          if (params.data) {
+            tip =
+              params.name +
+              '：<br>确诊：' +
+              params.data['value'] +
+              '例<br>死亡：' +
+              params.data['deadCount'] +
+              '例<br>治愈：' +
+              params.data['curedCount'] +
+              '例'
+          }
+          return tip
+        }
+      },
       visualMap: {
         show: true,
         type: 'piecewise',
@@ -105,7 +138,6 @@ class Map extends Component<MapProps, MapState> {
     return option
   }
   render() {
-    const { onClick } = this.props
     return (
       <ReactEcharts
         className={styles.mapbox}
@@ -113,12 +145,7 @@ class Map extends Component<MapProps, MapState> {
         echarts={echarts}
         option={this.getOption()}
         notMerge={true}
-        lazyUpdate={false}
-        onEvents={{
-          click(e) {
-            onClick(e.name)
-          }
-        }}
+        lazyUpdate={true}
       />
     )
   }
