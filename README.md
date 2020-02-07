@@ -13,11 +13,13 @@
  - [x] 疫情趋势
  - [x] 死亡率和治愈率
 
+
+
 ## 预览
  <br />
 <div text="center">
- <img width="48%" src="https://i.loli.net/2020/02/05/hxQ92mtwd5WkM6a.png"/>
- <img width="48%" src="https://i.loli.net/2020/02/05/jwfMITN4zKpYZqF.png"/>
+ <img width="48%" src="https://i.loli.net/2020/02/07/DEQlkAiw3MJ1Z9z.png"/>
+ <img width="48%" src="https://i.loli.net/2020/02/07/dWiA1jsyl56HMkF.png"/>
  <img width="48%" src="https://i.loli.net/2020/02/05/fcIAbX6StMsz8Lv.png"/>
  <img width="48%" src="https://i.loli.net/2020/02/05/8NXTyZkaUw1qs46.png"/>
  <img width="48%" src="https://i.loli.net/2020/02/05/LxlPgn1wQHAER5q.png"/>
