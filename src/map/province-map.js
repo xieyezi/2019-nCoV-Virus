@@ -24,6 +24,7 @@ export default {
   山东: 'shandong',
   上海: 'shanghai',
   山西: 'shanxi',
+  陕西: 'shanxi1',
   四川: 'sichuan',
   台湾: 'taiwan',
   天津: 'tianjin',
@@ -31,6 +32,5 @@ export default {
   新疆: 'xinjiang',
   西藏: 'xizang',
   云南: 'yunnan',
-  浙江: 'zhejiang',
-  陕西: 'shanxi'
+  浙江: 'zhejiang'
 }
