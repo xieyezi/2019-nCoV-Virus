@@ -1,7 +1,7 @@
 ;(this['webpackJsonpwuhan-virus'] = this['webpackJsonpwuhan-virus'] || []).push([
   [0],
   {
-    124: function(e, t, n) {
+    124: function(e, t, a) {
       e.exports = {
         newsitem: 'style_newsitem__3GDJz',
         newscontent: 'style_newscontent__Fq2J7',
@@ -10,7 +10,7 @@
         origin: 'style_origin__2hUNY'
       }
     },
-    143: function(e, t, n) {
+    143: function(e, t, a) {
       e.exports = {
         cardbox: 'style_cardbox__tiQww',
         card: 'style_card__WVS6y',
@@ -19,18 +19,18 @@
         title: 'style_title__35CVV'
       }
     },
-    188: function(e, t, n) {
+    188: function(e, t, a) {
       e.exports = { category: 'style_category__3QUH4', add: 'style_add__xqv3y', tip: 'style_tip__BaCAO' }
     },
-    423: function(e, t, n) {
+    423: function(e, t, a) {
       e.exports = { mapbox: 'style_mapbox___c_Dz' }
     },
-    429: function(e, t, n) {
-      e.exports = n(991)
+    429: function(e, t, a) {
+      e.exports = a(990)
     },
-    434: function(e, t, n) {},
-    435: function(e, t, n) {},
-    56: function(e, t, n) {
+    434: function(e, t, a) {},
+    435: function(e, t, a) {},
+    56: function(e, t, a) {
       e.exports = {
         top: 'style_top__1VCSg',
         title: 'style_title__aPjei',
@@ -47,126 +47,71 @@
         footer: 'style_footer__348qH'
       }
     },
-    621: function(e, t, n) {
-      var a = {
-        './anhui.json': [994, 3],
-        './aomen.json': [995, 4],
-        './beijing.json': [996, 5],
-        './chongqing.json': [997, 6],
-        './fujian.json': [998, 7],
-        './gansu.json': [999, 8],
-        './guangdong.json': [1e3, 9],
-        './guangxi.json': [1001, 10],
-        './guizhou.json': [1002, 11],
-        './hainan.json': [1003, 12],
-        './hebei.json': [1004, 13],
-        './heilongjiang.json': [1005, 14],
-        './henan.json': [1006, 15],
-        './hubei.json': [1007, 16],
-        './hunan.json': [1008, 17],
-        './jiangsu.json': [1009, 18],
-        './jiangxi.json': [1010, 19],
-        './jilin.json': [1011, 20],
-        './liaoning.json': [1012, 21],
-        './neimenggu.json': [1013, 22],
-        './ningxia.json': [1014, 23],
-        './qinghai.json': [1015, 24],
-        './shandong.json': [1016, 25],
-        './shanghai.json': [1017, 26],
-        './shanxi.json': [1018, 27],
-        './shanxi1.json': [1019, 28],
-        './sichuan.json': [1020, 29],
-        './taiwan.json': [1021, 30],
-        './tianjin.json': [1022, 31],
-        './xianggang.json': [1023, 32],
-        './xinjiang.json': [1024, 33],
-        './xizang.json': [1025, 34],
-        './yunnan.json': [1026, 35],
-        './zhejiang.json': [1027, 36]
-      }
-      function r(e) {
-        if (!n.o(a, e))
-          return Promise.resolve().then(function() {
-            var t = new Error("Cannot find module '" + e + "'")
-            throw ((t.code = 'MODULE_NOT_FOUND'), t)
-          })
-        var t = a[e],
-          r = t[0]
-        return n.e(t[1]).then(function() {
-          return n.t(r, 3)
-        })
-      }
-      ;(r.keys = function() {
-        return Object.keys(a)
-      }),
-        (r.id = 621),
-        (e.exports = r)
-    },
-    991: function(e, t, n) {
+    990: function(e, t, a) {
       'use strict'
-      n.r(t)
-      var a = n(0),
-        r = n.n(a),
-        i = n(10),
-        o = n.n(i),
-        s = (n(434), n(435), n(436), n(269)),
-        c = (n(438), n(190)),
-        l = (n(993), n(268)),
-        u = n(43),
-        m = n.n(u),
-        d = n(181),
-        p = n(182),
-        h = n(186),
-        f = n(183),
-        g = n(187),
-        v = (n(273), n(84)),
-        y = n(105),
-        x = n.n(y),
-        w = '964dc226dd5b57e892e6199735b6c55f'
-      function _() {
+      a.r(t)
+      var n = a(0),
+        r = a.n(n),
+        i = a(10),
+        o = a.n(i),
+        s = (a(434), a(435), a(436), a(269)),
+        c = (a(438), a(190)),
+        l = (a(992), a(268)),
+        u = a(45),
+        m = a.n(u),
+        d = a(181),
+        p = a(182),
+        h = a(186),
+        f = a(183),
+        v = a(187),
+        g = (a(273), a(84)),
+        y = a(105),
+        x = a.n(y),
+        _ = '964dc226dd5b57e892e6199735b6c55f'
+      function w() {
         return x()({
           method: 'get',
           url: 'https://raw.githubusercontent.com/huanent/vue-echarts-map-demo/master/map/china.json'
         })
       }
-      var b = n(191)
-      function E(e) {
+      var E = a(191)
+      function b(e) {
         var t = []
         return (
           e.forEach(function(e) {
-            var n = Object(b.a)({ name: e.provinceShortName, value: e.confirmedCount }, e)
-            t.push(n)
+            var a = Object(E.a)({ name: e.provinceShortName, value: e.confirmedCount }, e)
+            t.push(a)
           }),
           t
         )
       }
-      function j(e, t) {
-        var n = []
+      function L(e, t) {
+        var a = []
         return (
           t.includes('\u7701') || t.includes('\u81ea\u6cbb\u533a')
             ? e.forEach(function(e) {
-                var t = Object(b.a)({ name: e.cityName + '\u5e02', value: e.confirmedCount }, e)
-                n.push(t)
+                var t = Object(E.a)({ name: e.cityName + '\u5e02', value: e.confirmedCount }, e)
+                a.push(t)
               })
             : e.forEach(function(e) {
-                var t = Object(b.a)({ name: e.cityName, value: e.confirmedCount }, e)
-                n.push(t)
+                var t = Object(E.a)({ name: e.cityName, value: e.confirmedCount }, e)
+                a.push(t)
               }),
-          n
+          a
         )
       }
-      var L = n(421),
-        C = n.n(L),
-        N = (n(510), n(140)),
-        k = n.n(N),
-        S = n(122),
-        D = n.n(S),
-        I = n(13),
-        T = n.n(I),
-        O =
-          (n(582),
-          n(605),
-          n(229),
+      var C = a(421),
+        N = a.n(C),
+        S = (a(510), a(140)),
+        k = a.n(S),
+        j = a(122),
+        D = a.n(j),
+        I = a(14),
+        T = a.n(I),
+        B =
+          (a(582),
+          a(605),
+          a(229),
           {
             安徽: 'anhui',
             澳门: 'aomen',
@@ -203,16 +148,16 @@
             云南: 'yunnan',
             浙江: 'zhejiang'
           }),
-        z = n(423),
-        B = n.n(z),
+        O = a(423),
+        z = a.n(O),
         M = (function(e) {
           function t(e) {
-            var n
+            var a
             return (
               Object(d.a)(this, t),
-              ((n = Object(h.a)(this, Object(f.a)(t).call(this, e))).echarts_react = void 0),
-              (n.getOption = function() {
-                var e = n.state,
+              ((a = Object(h.a)(this, Object(f.a)(t).call(this, e))).echarts_react = void 0),
+              (a.getOption = function() {
+                var e = a.state,
                   t = e.province
                 return {
                   tooltip: {
@@ -275,18 +220,18 @@
                   ]
                 }
               }),
-              (n.echarts_react = a.createRef()),
-              (n.state = { province: '', mapList: [] }),
-              n
+              (a.echarts_react = n.createRef()),
+              (a.state = { province: '', mapList: [] }),
+              a
             )
           }
           return (
-            Object(g.a)(t, e),
+            Object(v.a)(t, e),
             Object(p.a)(t, [
               {
                 key: 'componentDidMount',
                 value: function() {
-                  var e, t, n, a, r
+                  var e, t, a, n, r
                   return m.a.async(
                     function(i) {
                       for (;;)
@@ -295,13 +240,13 @@
                             return (
                               (e = this.props),
                               (t = e.provinceName),
-                              (n = e.mapList),
-                              (a = t ? O[t] : ''),
+                              (a = e.mapList),
+                              (n = t ? B[t] : ''),
                               (i.next = 4),
-                              m.a.awrap(_())
+                              m.a.awrap(w())
                             )
                           case 4:
-                            ;(r = i.sent), T.a.registerMap('china', r.data), this.setState({ province: a, mapList: n })
+                            ;(r = i.sent), T.a.registerMap('china', r.data), this.setState({ province: n, mapList: a })
                           case 7:
                           case 'end':
                             return i.stop()
@@ -315,52 +260,43 @@
               {
                 key: 'UNSAFE_componentWillReceiveProps',
                 value: function(e) {
-                  var t, a, r, i, o, s
+                  var t, a, n, r, i
                   return m.a.async(
-                    function(c) {
+                    function(o) {
                       for (;;)
-                        switch ((c.prev = c.next)) {
+                        switch ((o.prev = o.next)) {
                           case 0:
-                            if (((t = e.provinceName), (a = e.mapList), '' !== (r = t ? O[t] : ''))) {
-                              c.next = 9
+                            if (((t = e.provinceName), (a = e.mapList), '' !== (n = t ? B[t] : ''))) {
+                              o.next = 9
                               break
                             }
-                            return (c.next = 5), m.a.awrap(_())
+                            return (o.next = 5), m.a.awrap(w())
                           case 5:
-                            ;(i = c.sent), T.a.registerMap('china', i.data), (c.next = 20)
+                            ;(r = o.sent), T.a.registerMap('china', r.data), (o.next = 13)
                             break
                           case 9:
-                            if ('shanxi1' !== r) {
-                              c.next = 16
-                              break
-                            }
-                            return (c.next = 12), m.a.awrap(n(621)('./'.concat(r, '.json')))
-                          case 12:
-                            ;(o = c.sent), T.a.registerMap(r, o.default), (c.next = 20)
-                            break
-                          case 16:
                             return (
-                              (c.next = 18),
+                              (o.next = 11),
                               m.a.awrap(
-                                ((l = r),
+                                ((s = n),
                                 x()({
                                   method: 'get',
                                   url: 'https://raw.githubusercontent.com/huanent/vue-echarts-map-demo/master/map/province/'.concat(
-                                    l,
+                                    s,
                                     '.json'
                                   )
                                 }))
                               )
                             )
-                          case 18:
-                            ;(s = c.sent), T.a.registerMap(r, s.data)
-                          case 20:
-                            this.setState({ province: r, mapList: a })
-                          case 21:
+                          case 11:
+                            ;(i = o.sent), T.a.registerMap(n, i.data)
+                          case 13:
+                            this.setState({ province: n, mapList: a })
+                          case 14:
                           case 'end':
-                            return c.stop()
+                            return o.stop()
                         }
-                      var l
+                      var s
                     },
                     null,
                     this
@@ -376,8 +312,8 @@
               {
                 key: 'render',
                 value: function() {
-                  return a.createElement(D.a, {
-                    className: B.a.mapbox,
+                  return n.createElement(D.a, {
+                    className: z.a.mapbox,
                     style: { height: '400px' },
                     echarts: T.a,
                     option: this.getOption(),
@@ -389,16 +325,16 @@
             ]),
             t
           )
-        })(a.Component),
-        U = (n(622), n(270)),
-        H = (n(420), n(185)),
-        F = n(124),
-        W = n.n(F),
-        Y = function(e) {
-          return a.createElement(
+        })(n.Component),
+        U = (a(621), a(270)),
+        H = (a(420), a(185)),
+        W = a(124),
+        Y = a.n(W),
+        F = function(e) {
+          return n.createElement(
             'div',
-            { className: W.a.newsitem },
-            a.createElement(
+            { className: Y.a.newsitem },
+            n.createElement(
               'p',
               null,
               k()(e.news.pubDate).format('YYYY\u5e74MM\u6708DD\u65e5 HH:mm'),
@@ -406,69 +342,69 @@
               e.news.pubDateStr,
               ')'
             ),
-            a.createElement(
+            n.createElement(
               H.a,
               { title: e.news.title },
-              a.createElement('p', { className: W.a.newscontent }, e.news.summary),
-              a.createElement(
+              n.createElement('p', { className: Y.a.newscontent }, e.news.summary),
+              n.createElement(
                 'div',
-                { className: W.a.footer },
-                a.createElement(
+                { className: Y.a.footer },
+                n.createElement(
                   'p',
                   null,
                   '\u5730\u533a:',
-                  a.createElement('span', { className: W.a.area }, e.news.provinceName)
+                  n.createElement('span', { className: Y.a.area }, e.news.provinceName)
                 ),
-                a.createElement(
+                n.createElement(
                   'p',
                   {
                     onClick: function() {
-                      return q(e.news.sourceUrl)
+                      return R(e.news.sourceUrl)
                     }
                   },
                   '\u6765\u6e90:',
-                  a.createElement('span', { className: W.a.origin }, e.news.infoSource)
+                  n.createElement('span', { className: Y.a.origin }, e.news.infoSource)
                 )
               )
             )
           )
         },
-        q = function(e) {
+        R = function(e) {
           window.open('about:blank').location.href = e
         },
-        P = function(e) {
+        A = function(e) {
           var t = e.newlist
-          return a.createElement(
+          return n.createElement(
             U.a,
             null,
             t.map(function(e, t) {
-              return a.createElement(U.a.Item, { key: t }, a.createElement(Y, { news: e }))
+              return n.createElement(U.a.Item, { key: t }, n.createElement(F, { news: e }))
             })
           )
         },
-        R = n(188),
-        A = n.n(R),
-        J = function(e) {
+        J = a(188),
+        P = a.n(J),
+        q = function(e) {
           var t = e.title,
-            n = e.count,
+            a = e.count,
             r = e.addcount,
             i = e.color
-          return a.createElement(
+          return n.createElement(
             'div',
-            { style: { color: i }, className: A.a.category },
-            a.createElement('p', null, t),
-            a.createElement('p', null, n, '\u4f8b'),
-            a.createElement(
+            { style: { color: i }, className: P.a.category },
+            n.createElement('p', null, t),
+            n.createElement('p', null, a, '\u4f8b'),
+            n.createElement(
               'p',
               null,
-              a.createElement('span', { className: A.a.tip }, '\u8f83\u6628\u65e5'),
-              a.createElement('span', { className: A.a.add }, '+', r)
+              n.createElement('span', { className: P.a.tip }, '\u8f83\u6628\u65e5'),
+              n.createElement('span', { className: P.a.add }, '+', r)
             )
           )
         },
         V =
-          (n(639),
-          n(355),
+          (a(638),
+          a(355),
           function(e) {
             return {
               tooltip: { trigger: 'item', formatter: '{a} <br/>{b} : {c} ({d}%)' },
@@ -492,23 +428,23 @@
           }),
         G = function(e) {
           var t = e.virusDesc,
-            n = [],
+            a = [],
             r = { name: '\u5728\u8bca\u4eba\u6570', value: t.confirmedCount - t.deadCount - t.curedCount },
             i = { name: '\u6b7b\u4ea1\u4eba\u6570', value: t.deadCount },
             o = { name: '\u6cbb\u6108\u4eba\u6570', value: t.curedCount }
           return (
-            n.push(r),
-            n.push(i),
-            n.push(o),
-            a.createElement(D.a, { echarts: T.a, option: V(n), notMerge: !0, lazyUpdate: !0 })
+            a.push(r),
+            a.push(i),
+            a.push(o),
+            n.createElement(D.a, { echarts: T.a, option: V(a), notMerge: !0, lazyUpdate: !0 })
           )
         },
-        K = (n(652), n(425)),
-        Q = n(143),
-        X = n.n(Q),
+        K = (a(651), a(425)),
+        Q = a(143),
+        X = a.n(Q),
         $ = function(e) {
           var t = e.rumorList
-          return a.createElement(
+          return n.createElement(
             K.a,
             { style: { background: '#fff', height: '450px' } },
             t.map(function(e) {
@@ -520,25 +456,25 @@
                   (t = 'https://assets.dxycdn.com/gitrepo/ncov-mobile/dist/static/badge-big@2x.5395c013.png'),
                 '\u5c1a\u65e0\u5b9a\u8bba' === e.explain &&
                   (t = 'https://assets.dxycdn.com/gitrepo/ncov-mobile/dist/static/badge-y-big@2x.c0fd84da.png'),
-                a.createElement(
+                n.createElement(
                   'div',
                   { className: X.a.cardbox, key: e.id },
-                  a.createElement(
+                  n.createElement(
                     H.a,
                     {
                       className: X.a.card,
-                      cover: a.createElement('img', {
+                      cover: n.createElement('img', {
                         alt: '\u56fe\u7247',
                         style: { borderRadius: '20px 20px 0px 0px', opacity: 0.8, height: 200 },
                         src: e.imgsrc
                       })
                     },
-                    a.createElement('img', { src: t, alt: '', className: X.a.tip }),
-                    a.createElement(
+                    n.createElement('img', { src: t, alt: '', className: X.a.tip }),
+                    n.createElement(
                       'div',
                       null,
-                      a.createElement('p', { className: X.a.title }, e.title),
-                      a.createElement('p', null, e.desc)
+                      n.createElement('p', { className: X.a.title }, e.title),
+                      n.createElement('p', null, e.desc)
                     )
                   )
                 )
@@ -547,53 +483,53 @@
           )
         },
         Z =
-          (n(665),
-          n(685),
-          n(686),
-          function(e, t, n, a, r, i) {
+          (a(664),
+          a(684),
+          a(685),
+          function(e, t, a, n, r, i) {
             return {
               tooltip: { trigger: 'axis' },
-              legend: { orient: 'horizontal', left: 'center', data: a },
+              legend: { orient: 'horizontal', left: 'center', data: n },
               grid: { left: '3%', right: '4%', bottom: '3%', containLabel: !0 },
               xAxis: { type: 'category', boundaryGap: !1, data: e },
               yAxis: { type: 'value' },
               series: [
                 {
-                  name: a[0],
+                  name: n[0],
                   type: 'line',
                   stack: '\u603b\u91cf',
                   itemStyle: { normal: { color: r, lineStyle: { color: r } } },
                   data: t
                 },
                 {
-                  name: a[1],
+                  name: n[1],
                   type: 'line',
                   stack: '\u603b\u91cf',
                   itemStyle: { normal: { color: i, lineStyle: { color: i } } },
-                  data: n
+                  data: a
                 }
               ]
             }
           }),
         ee = function(e) {
           var t = e.dateList,
-            n = e.firstList,
+            a = e.firstList,
             r = e.secondList,
             i = e.legendData,
             o = e.firstColor,
             s = e.secondColor
-          return a.createElement(D.a, { echarts: T.a, option: Z(t, n, r, i, o, s), notMerge: !0, lazyUpdate: !0 })
+          return n.createElement(D.a, { echarts: T.a, option: Z(t, a, r, i, o, s), notMerge: !0, lazyUpdate: !0 })
         },
-        te = n(56),
-        ne = n.n(te),
-        ae = v.a.Option,
+        te = a(56),
+        ae = a.n(te),
+        ne = g.a.Option,
         re = (function(e) {
           function t(e) {
-            var n
+            var a
             return (
               Object(d.a)(this, t),
-              ((n = Object(h.a)(this, Object(f.a)(t).call(this, e))).initData = function() {
-                var e, t, a, r, i, o, s, c
+              ((a = Object(h.a)(this, Object(f.a)(t).call(this, e))).initData = function() {
+                var e, t, n, r, i, o, s, c
                 return m.a.async(function(l) {
                   for (;;)
                     switch ((l.prev = l.next)) {
@@ -601,59 +537,59 @@
                         return (
                           (l.next = 2),
                           m.a.awrap(
-                            x()({ method: 'get', url: 'http://api.tianapi.com/txapi/ncov/index?key='.concat(w) })
+                            x()({ method: 'get', url: 'http://api.tianapi.com/txapi/ncov/index?key='.concat(_) })
                           )
                         )
                       case 2:
                         return (
                           200 === (e = l.sent).status &&
                             ((t = e.data.newslist[0]),
-                            (a = t.news),
+                            (n = t.news),
                             (r = t.desc),
-                            n.setState({ newsList: a, virusDesc: r, caseList: e.data.newslist[0].case })),
+                            a.setState({ newsList: n, virusDesc: r, caseList: e.data.newslist[0].case })),
                           (l.next = 6),
                           m.a.awrap(
-                            x()({ method: 'get', url: 'http://api.tianapi.com/txapi/ncovcity/index?key='.concat(w) })
+                            x()({ method: 'get', url: 'http://api.tianapi.com/txapi/ncovcity/index?key='.concat(_) })
                           )
                         )
                       case 6:
                         ;(i = l.sent),
                           (o = i.data.newslist),
-                          (s = E(o)),
+                          (s = b(o)),
                           (c = []).push('\u5168\u56fd'),
                           s.forEach(function(e) {
                             c.push(e.provinceShortName)
                           }),
-                          n.setState({ staticList: o, mapList: s, provinceList: c, loading: !1 }),
-                          n.getRumorList()
+                          a.setState({ staticList: o, mapList: s, provinceList: c, loading: !1 }),
+                          a.getRumorList()
                       case 14:
                       case 'end':
                         return l.stop()
                     }
                 })
               }),
-              (n.getRumorList = function() {
+              (a.getRumorList = function() {
                 var e, t
-                return m.a.async(function(a) {
+                return m.a.async(function(n) {
                   for (;;)
-                    switch ((a.prev = a.next)) {
+                    switch ((n.prev = n.next)) {
                       case 0:
                         return (
-                          (a.next = 2),
+                          (n.next = 2),
                           m.a.awrap(
-                            x()({ method: 'get', url: 'http://api.tianapi.com/txapi/rumour/index?key='.concat(w) })
+                            x()({ method: 'get', url: 'http://api.tianapi.com/txapi/rumour/index?key='.concat(_) })
                           )
                         )
                       case 2:
-                        ;(e = a.sent), (t = e.data.newslist), n.setState({ rumorList: t })
+                        ;(e = n.sent), (t = e.data.newslist), a.setState({ rumorList: t })
                       case 5:
                       case 'end':
-                        return a.stop()
+                        return n.stop()
                     }
                 })
               }),
-              (n.getTrendList = function() {
-                var e, t, a, r, i, o, s, c, l, u, d, p
+              (a.getTrendList = function() {
+                var e, t, n, r, i, o, s, c, l, u, d, p
                 return m.a.async(function(h) {
                   for (;;)
                     switch ((h.prev = h.next)) {
@@ -665,7 +601,7 @@
                       case 2:
                         ;(e = h.sent),
                           (t = e.data.results),
-                          (a = []),
+                          (n = []),
                           (r = []),
                           (i = []),
                           (o = []),
@@ -676,16 +612,16 @@
                           (d = []),
                           (p = []),
                           t.forEach(function(e) {
-                            a.push(k()(e.updateTime).format('MM-DD')),
+                            n.push(k()(e.updateTime).format('MM-DD')),
                               r.push(e.confirmedCount),
                               i.push(e.suspectedCount),
                               o.push(e.deadCount),
                               s.push(e.curedCount)
                           }),
-                          a.reverse().forEach(function(e, t) {
-                            e !== a[t + 1] && (c.push(e), l.push(r[t]), u.push(i[t]), d.push(o[t]), p.push(s[t]))
+                          n.reverse().forEach(function(e, t) {
+                            e !== n[t + 1] && (c.push(e), l.push(r[t]), u.push(i[t]), d.push(o[t]), p.push(s[t]))
                           }),
-                          n.setState({
+                          a.setState({
                             dateList: c,
                             confirmedTrendList: l.reverse(),
                             suspectedTrendList: u.reverse(),
@@ -699,15 +635,15 @@
                     }
                 })
               }),
-              (n.toProvince = function(e) {
+              (a.toProvince = function(e) {
                 var t,
-                  a = n.state.staticList,
+                  n = a.state.staticList,
                   r = [],
                   i = !0,
                   o = !1,
                   s = void 0
                 try {
-                  for (var c, l = a[Symbol.iterator](); !(i = (c = l.next()).done); i = !0) {
+                  for (var c, l = n[Symbol.iterator](); !(i = (c = l.next()).done); i = !0) {
                     var u = c.value
                     if (e === u.provinceShortName) {
                       ;(r = u.cities), (t = u.provinceName)
@@ -724,14 +660,14 @@
                   }
                 }
                 if (0 !== r.length) {
-                  var m = j(r, t)
-                  n.setState({ provinceName: e, mapList: m })
+                  var m = L(r, t)
+                  a.setState({ provinceName: e, mapList: m })
                 } else {
-                  var d = E(a)
-                  n.setState({ provinceName: '', mapList: d })
+                  var d = b(n)
+                  a.setState({ provinceName: '', mapList: d })
                 }
               }),
-              (n.state = {
+              (a.state = {
                 timer: null,
                 newsList: [],
                 caseList: [],
@@ -767,11 +703,11 @@
                 loading: !0,
                 trendLoading: !0
               }),
-              n
+              a
             )
           }
           return (
-            Object(g.a)(t, e),
+            Object(v.a)(t, e),
             Object(p.a)(t, [
               {
                 key: 'componentDidMount',
@@ -797,7 +733,7 @@
                 value: function() {
                   var e = this,
                     t = this.state,
-                    n = t.virusDesc,
+                    a = t.virusDesc,
                     r = t.mapList,
                     i = t.provinceName,
                     o = t.tabIndex,
@@ -807,34 +743,34 @@
                     p = t.confirmedTrendList,
                     h = t.suspectedTrendList,
                     f = t.deadTrendList,
-                    g = t.curedTrendList,
+                    v = t.curedTrendList,
                     y = t.provinceList,
                     x = t.loading,
-                    w = t.trendLoading,
-                    _ = [
+                    _ = t.trendLoading,
+                    w = [
                       { title: '\u5730\u533a', dataIndex: 'name', key: 'name' },
                       { title: '\u786e\u8bca', dataIndex: 'confirmedCount', key: 'confirmedCount' },
                       { title: '\u6b7b\u4ea1', dataIndex: 'deadCount', key: 'deadCount' },
                       { title: '\u6cbb\u6108', dataIndex: 'curedCount', key: 'curedCount' }
                     ]
-                  return a.createElement(
+                  return n.createElement(
                     s.a,
                     { loading: x, active: !0, paragraph: { rows: 50 } },
-                    a.createElement(
+                    n.createElement(
                       'div',
                       null,
-                      a.createElement(
+                      n.createElement(
                         'div',
-                        { className: ne.a.top },
-                        a.createElement(
+                        { className: ae.a.top },
+                        n.createElement(
                           'p',
-                          { className: ne.a.title },
+                          { className: ae.a.title },
                           '\u65b0\u578b\u51a0\u72b6\u75c5\u6bd2\u80ba\u708e\u75ab\u60c5'
                         ),
-                        a.createElement('p', { className: ne.a.tip }, '\u5b9e\u65f6\u52a8\u6001')
+                        n.createElement('p', { className: ae.a.tip }, '\u5b9e\u65f6\u52a8\u6001')
                       ),
-                      a.createElement(
-                        C.a,
+                      n.createElement(
+                        N.a,
                         {
                           tabs: [
                             { title: '\u75ab\u60c5\u5730\u56fe' },
@@ -847,84 +783,84 @@
                           tabBarInactiveTextColor: '#616161',
                           tabBarActiveTextColor: '#6C63FF',
                           tabBarUnderlineStyle: { border: '1px #6C63FF solid' },
-                          onChange: function(t, n) {
-                            e.setState({ tabIndex: n }), 3 === n && e.getTrendList()
+                          onChange: function(t, a) {
+                            e.setState({ tabIndex: a }), 3 === a && e.getTrendList()
                           }
                         },
-                        a.createElement(
+                        n.createElement(
                           'div',
-                          { className: ne.a.map },
-                          a.createElement('span', { className: ne.a.allCountry }, '\u5168\u56fd'),
-                          a.createElement(
+                          { className: ae.a.map },
+                          n.createElement('span', { className: ae.a.allCountry }, '\u5168\u56fd'),
+                          n.createElement(
                             'span',
                             null,
                             '\u622a\u81f3',
-                            k()(n.modifyTime).format('YYYY\u5e74MM\u6708DD\u65e5 HH:mm'),
+                            k()(a.modifyTime).format('YYYY\u5e74MM\u6708DD\u65e5 HH:mm'),
                             '(\u5317\u4eac\u65f6\u95f4)'
                           ),
-                          a.createElement('span', null, '\u7edf\u8ba1'),
-                          a.createElement(
+                          n.createElement('span', null, '\u7edf\u8ba1'),
+                          n.createElement(
                             'div',
-                            { className: ne.a.category },
-                            a.createElement(J, {
+                            { className: ae.a.category },
+                            n.createElement(q, {
                               title: '\u786e\u8bca',
-                              count: n.confirmedCount,
-                              addcount: n.confirmedIncr,
+                              count: a.confirmedCount,
+                              addcount: a.confirmedIncr,
                               color: '#e57471'
                             }),
-                            a.createElement(J, {
+                            n.createElement(q, {
                               title: '\u7591\u4f3c',
-                              count: n.suspectedCount,
-                              addcount: n.suspectedIncr,
+                              count: a.suspectedCount,
+                              addcount: a.suspectedIncr,
                               color: '#dda451'
                             }),
-                            a.createElement(J, {
+                            n.createElement(q, {
                               title: '\u91cd\u75c7',
-                              count: n.seriousCount,
-                              addcount: n.seriousIncr,
+                              count: a.seriousCount,
+                              addcount: a.seriousIncr,
                               color: '#5d4037'
                             }),
-                            a.createElement(J, {
+                            n.createElement(q, {
                               title: '\u6b7b\u4ea1',
-                              count: n.deadCount,
-                              addcount: n.deadIncr,
+                              count: a.deadCount,
+                              addcount: a.deadIncr,
                               color: '#919399'
                             }),
-                            a.createElement(J, {
+                            n.createElement(q, {
                               title: '\u6cbb\u6108',
-                              count: n.curedCount,
-                              addcount: n.curedIncr,
+                              count: a.curedCount,
+                              addcount: a.curedIncr,
                               color: '#7ebe50'
                             })
                           ),
-                          a.createElement(c.a, null),
-                          a.createElement(
+                          n.createElement(c.a, null),
+                          n.createElement(
                             'div',
                             null,
-                            a.createElement(
+                            n.createElement(
                               'p',
                               null,
                               '\u5404\u7701\u6700\u65b0\u75ab\u60c5\u67e5\u8be2\uff08\u70b9\u51fb\u9009\u62e9\u5177\u4f53\u7701\u4efd\uff09\uff1a'
                             ),
-                            a.createElement(
-                              v.a,
+                            n.createElement(
+                              g.a,
                               { defaultValue: '\u5168\u56fd', style: { width: '90%' }, onChange: this.toProvince },
                               y.map(function(e, t) {
-                                return a.createElement(ae, { value: e, key: t }, e)
+                                return n.createElement(ne, { value: e, key: t }, e)
                               })
                             )
                           ),
-                          r.length > 0 ? a.createElement(M, { provinceName: i, mapList: r }) : null
+                          r.length > 0 ? n.createElement(M, { provinceName: i, mapList: r }) : null
                         ),
-                        a.createElement('div', { className: ne.a.newsBox }, a.createElement(P, { newlist: u })),
-                        a.createElement('div', { className: ne.a.rumorBox }, a.createElement($, { rumorList: m })),
-                        a.createElement(
+                        n.createElement('div', { className: ae.a.newsBox }, n.createElement(A, { newlist: u })),
+                        n.createElement('div', { className: ae.a.rumorBox }, n.createElement($, { rumorList: m })),
+                        n.createElement(
                           'div',
-                          { className: ne.a.trendBox },
-                          a.createElement(
+                          { className: ae.a.trendBox },
+                          n.createElement(
                             s.a,
-                            { loading: w, active: !0, paragraph: { rows: 15 } },
-                            a.createElement(ee, {
+                            { loading: _, active: !0, paragraph: { rows: 15 } },
+                            n.createElement(ee, {
                               dateList: d,
                               firstList: p,
                               secondList: h,
@@ -932,33 +868,33 @@
                               secondColor: '#dda451',
                               legendData: ['\u786e\u8bca\u4eba\u6570', '\u7591\u4f3c\u4eba\u6570']
                             }),
-                            a.createElement(c.a, null),
-                            a.createElement(ee, {
+                            n.createElement(c.a, null),
+                            n.createElement(ee, {
                               dateList: d,
                               firstList: f,
-                              secondList: g,
+                              secondList: v,
                               firstColor: '#919399',
                               secondColor: '#7ebe50',
                               legendData: ['\u6b7b\u4ea1\u4eba\u6570', '\u6cbb\u6108\u4eba\u6570']
                             }),
-                            a.createElement(c.a, null),
-                            a.createElement(G, { virusDesc: n })
+                            n.createElement(c.a, null),
+                            n.createElement(G, { virusDesc: a })
                           )
                         )
                       ),
                       0 === o
-                        ? a.createElement(l.a, {
-                            className: ne.a.table,
-                            columns: _,
+                        ? n.createElement(l.a, {
+                            className: ae.a.table,
+                            columns: w,
                             pagination: !1,
                             expandedRowRender: function(e) {
                               return (function(e) {
                                 var t = []
                                 return (
-                                  e.provinceName && (t = j(e.cities, e.provinceName)),
+                                  e.provinceName && (t = L(e.cities, e.provinceName)),
                                   t.length > 0
-                                    ? a.createElement(l.a, {
-                                        columns: _,
+                                    ? n.createElement(l.a, {
+                                        columns: w,
                                         showHeader: !1,
                                         rowKey: function(e) {
                                           return e.name
@@ -978,16 +914,16 @@
                         : null
                     ),
                     0 === o
-                      ? a.createElement(
+                      ? n.createElement(
                           'div',
-                          { className: ne.a.footer },
-                          a.createElement('p', null, '\u6b66\u6c49\u52a0\u6cb9\u5440~'),
-                          a.createElement(
+                          { className: ae.a.footer },
+                          n.createElement('p', null, '\u6b66\u6c49\u52a0\u6cb9\u5440~'),
+                          n.createElement(
                             'a',
                             { href: 'http://www.beian.miit.gov.cn/', target: 'view_window' },
                             '\u6e1dICP\u590717013916\u53f7'
                           ),
-                          a.createElement('a', { href: 'https://github.com/xieyezi', target: 'view_window' }, 'Github')
+                          n.createElement('a', { href: 'https://github.com/xieyezi', target: 'view_window' }, 'Github')
                         )
                       : null
                   )
@@ -996,7 +932,7 @@
             ]),
             t
           )
-        })(a.Component),
+        })(n.Component),
         ie = function() {
           return r.a.createElement('div', { className: 'App' }, r.a.createElement(re, null))
         }
@@ -1005,7 +941,7 @@
           '[::1]' === window.location.hostname ||
           window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
       )
-      n(789)
+      a(788)
       o.a.render(r.a.createElement(ie, null), document.getElementById('root')),
         'serviceWorker' in navigator &&
           navigator.serviceWorker.ready.then(function(e) {

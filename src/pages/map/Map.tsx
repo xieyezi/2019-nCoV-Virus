@@ -49,13 +49,8 @@ class Map extends Component<MapProps, MapState> {
       echarts.registerMap('china', chinaMapJson.data)
     } else {
       // 修复陕西和山西 key 重名问题
-      if (province === 'shanxi1') {
-        const provinceMapJson = await import(`echarts/map/json/province/${province}.json`)
-        echarts.registerMap(province, provinceMapJson.default)
-      } else {
-        const provinceMapJson = await getProvinceJson(province)
-        echarts.registerMap(province, provinceMapJson.data)
-      }
+      const provinceMapJson = await getProvinceJson(province)
+      echarts.registerMap(province, provinceMapJson.data)
     }
     this.setState({
       province: province,
